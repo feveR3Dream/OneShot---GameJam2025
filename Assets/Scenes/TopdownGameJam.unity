@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Camera: {fileID: 519420031}
   player: {fileID: 1985871235}
   boss: {fileID: 1337571955}
-  speed: 0.5
+  speed: 1
   minZoom: 8
   maxZoom: 20
 --- !u!1 &575734324
@@ -518,6 +518,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &782292114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782292115}
+  m_Layer: 7
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782292115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782292114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985871235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138418488
 GameObject:
@@ -1088,6 +1119,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 575734325}
+  - {fileID: 782292115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1985871236
@@ -1108,6 +1140,9 @@ MonoBehaviour:
   Deceleration: 20
   MovementSpeed: 12
   Boss: {fileID: 1337571955}
+  projectilePrefab: {fileID: 3301943629999782246, guid: 0e6cff2ca8cf3aa41b88ba14f9438396, type: 3}
+  firePoint: {fileID: 782292115}
+  projectileSpeed: 10
 --- !u!58 &1985871237
 CircleCollider2D:
   m_ObjectHideFlags: 0
