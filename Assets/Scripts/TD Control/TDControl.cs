@@ -38,17 +38,6 @@ public class TDControl : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        EventDispatcher.Instance.Subscribe<BossDamaged>(PlayerKnockback);
-    }
-
-    private void OnDisable()
-    {
-        EventDispatcher.Instance.Unsubscribe<BossDamaged>(PlayerKnockback);
-    }
-
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
