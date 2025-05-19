@@ -23,6 +23,7 @@ public class AbilityCooldown
 }
 public class BossPhaseController : MonoBehaviour
 {
+    public int Phase;
     private Dictionary<AbilityName, AbilityCooldown> abilitiesCooldown = new Dictionary<AbilityName, AbilityCooldown>() 
     {
         {AbilityName.Spikey, new AbilityCooldown(false, 5f)},
@@ -60,5 +61,22 @@ public class BossPhaseController : MonoBehaviour
             }
         }
             
+    }
+
+    public void Hurt()
+    {
+        //Some other visual shit here
+        PhaseIncrease();
+    }
+
+    private void PhaseIncrease()
+    {
+        Phase += 1;
+        switch (Phase)
+        {
+            default:
+                //LOLOLOL
+                break;
+        }
     }
 }
