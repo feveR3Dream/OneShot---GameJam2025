@@ -9,6 +9,9 @@ public class TDControl : MonoBehaviour
     [Header("References")]
     [SerializeField] private Collider2D bodyColl;
 
+    [Header("Values")]
+    [SerializeField] private float lineRenderDistance;
+
     [Header("Player Movement Info")]
     public float Acceleration;
     public float Deceleration;
@@ -18,7 +21,10 @@ public class TDControl : MonoBehaviour
     [SerializeField] private Transform Boss;
 
     // Movement Vars
-    private Vector2 moveVelocity; // Temp
+    private Vector2 moveVelocity;
+    private Vector2 targetDir;
+
+
 
 
     private void Awake()
@@ -35,17 +41,14 @@ public class TDControl : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerMove(Acceleration, Deceleration, InputManager.Move);
-        AutoLookAtBoss();
-    }
-
-    private void LateUpdate()
-    {
+        //AutoLookAtBoss();
+        PlayerLook();
     }
 
     private void Update()
     {
+        Debug.DrawLine((Vector2)transform.position + targetDir / 1.5f, (Vector2)transform.position + targetDir * lineRenderDistance, Color.red);
     }
-
     #region Movement
 
     private void PlayerMove(float acceleration, float deceleration, Vector2 moveInput)
@@ -77,8 +80,16 @@ public class TDControl : MonoBehaviour
         rb.rotation = angle;
     }
 
-    private void AimTuning()
+    private void PlayerLook()
     {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        targetDir = (mousePos - (Vector2)transform.position).normalized;
+
+        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+
+        rb.rotation = angle;
+
 
     }
 
