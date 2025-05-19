@@ -24,9 +24,6 @@ public class TDControl : MonoBehaviour
     private Vector2 moveVelocity;
     private Vector2 targetDir;
 
-
-
-
     private void OnEnable()
     {
         EventDispatcher.Instance.Subscribe<BossDamaged>(PlayerKnockback);
