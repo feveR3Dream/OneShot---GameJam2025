@@ -122,9 +122,7 @@ public class TDControl : MonoBehaviour
         Vector2 multipliedforce = pushdirection.normalized * 10f;
 
         rb.AddForce(multipliedforce, ForceMode2D.Impulse);
-<<<<<<< Updated upstream
         Debug.Log("Kncokback applied");
-=======
->>>>>>> Stashed changes
+
     }
 }
