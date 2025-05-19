@@ -6,7 +6,6 @@ public class KnockbackBlastController : MonoBehaviour, I_ProjectileHostile
 {
     private GameObject owner;
     private bool available = false;
-    private bool touched = false;
     public void SetOwner(GameObject obj)
     {
         owner = obj;
@@ -21,10 +20,7 @@ public class KnockbackBlastController : MonoBehaviour, I_ProjectileHostile
         {
             if (collider.gameObject.CompareTag("Player") == true)
             {
-                Vector2 pushdirection = collider.gameObject.transform.position - owner.transform.position;
-                Vector2 multipliedforce = pushdirection.normalized * 10f;
-
-                collider.gameObject.GetComponent<Rigidbody2D>().AddForce(multipliedforce, ForceMode2D.Impulse);
+                EventDispatcher.Instance.SendEvent(new BossDamaged());
             }
         }
     }
