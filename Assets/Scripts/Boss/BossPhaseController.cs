@@ -84,7 +84,11 @@ public class BossPhaseController : MonoBehaviour
     private void Ability2(AbilityName name)
     {
         abilitiesCooldown[name].Cooldown = 2f;
+<<<<<<< Updated upstream
         EventDispatcher.Instance.SendEvent(new BossDamaged());
+=======
+        AuraPush();
+>>>>>>> Stashed changes
     }
 
     private void Ability3(AbilityName name)
@@ -109,8 +113,11 @@ public class BossPhaseController : MonoBehaviour
         //Some other visual shit here
         AuraPush();
         PhaseIncrease();
+<<<<<<< Updated upstream
 
         EventDispatcher.Instance.SendEvent(new BossDamaged());
+=======
+>>>>>>> Stashed changes
     }
 
     
