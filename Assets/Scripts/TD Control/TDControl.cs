@@ -16,8 +16,6 @@ public class TDControl : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private Transform Boss;
-    [SerializeField] private Transform AimPos1;
-    [SerializeField] private Transform AimPos2;
 
     // Movement Vars
     private Vector2 moveVelocity; // Temp
@@ -36,12 +34,16 @@ public class TDControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-       PlayerMove(Acceleration, Deceleration, InputManager.Move);
+        PlayerMove(Acceleration, Deceleration, InputManager.Move);
+        AutoLookAtBoss();
     }
 
     private void LateUpdate()
     {
-        AutoLookAtBoss();
+    }
+
+    private void Update()
+    {
     }
 
     #region Movement
@@ -72,7 +74,7 @@ public class TDControl : MonoBehaviour
     {
         Vector2 direction = Boss.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        rb.rotation = angle;
     }
 
     private void AimTuning()
