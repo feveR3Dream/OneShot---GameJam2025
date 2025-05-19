@@ -2,18 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class TDControl : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Collider2D bodyColl;
+
+    [Header("Player Movement Info")]
+    [SerializeField] private float acceleration;
+    [SerializeField] private float deceleration;
+    [SerializeField] private float movementSpeed;
+
+    private Rigidbody2D rb;
+
+    // Movement Vars
+    private Vector2 moveVelocity; // Temp
 
 
-    void Start()
+    private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        rb.mass = 0;
+        rb.gravityScale = 0;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-
-    void Update()
+    private void FixedUpdate()
     {
-        
+       PlayerMove(acceleration, deceleration, InputManager.Move);
     }
+
+    #region Movement
+
+    private void PlayerMove(float acceleration, float deceleration, Vector2 moveInput)
+    {
+        // Check movement input val
+        if (moveInput != Vector2.zero)
+        {
+
+            Vector2 targetVelocity = Vector2.zero;
+            targetVelocity = new Vector2(moveInput.x, moveInput.y) * movementSpeed;
+
+            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.deltaTime);
+            rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
+        }
+
+        else if (moveInput == Vector2.zero)
+        {
+            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.deltaTime);
+            rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
+        }
+    }
+
+    #endregion
+
 }
