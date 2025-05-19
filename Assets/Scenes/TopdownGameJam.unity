@@ -632,10 +632,14 @@ GameObject:
   - component: {fileID: 1337571955}
   - component: {fileID: 1337571954}
   - component: {fileID: 1337571956}
+<<<<<<< Updated upstream
   - component: {fileID: 1337571957}
   m_Layer: 0
+=======
+  m_Layer: 6
+>>>>>>> Stashed changes
   m_Name: Big Fat Ugly
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,9 +705,9 @@ Transform:
   m_GameObject: {fileID: 1337571953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.32, y: 1.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -719,6 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615043e5e3d0dc4aad1787b5da871ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!58 &1337571957
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -754,6 +759,10 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+=======
+  ProjectilesPrefab:
+  - {fileID: 73202845120909470, guid: 93d60ae8a3f5ca0499ccb0a74cfc4f04, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &1517634309
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,9 +951,9 @@ GameObject:
   - component: {fileID: 1985871237}
   - component: {fileID: 1985871232}
   - component: {fileID: 1985871236}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Testing Player Dummy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -974,7 +983,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &1985871234
 SpriteRenderer:
@@ -1037,7 +1046,7 @@ Transform:
   m_GameObject: {fileID: 1985871230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2529132, y: 0.7042593, z: 0}
+  m_LocalPosition: {x: -6.59, y: 2.55, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1057,10 +1066,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyColl: {fileID: 1985871237}
+<<<<<<< Updated upstream
   lineRenderDistance: 15
   Acceleration: 15
   Deceleration: 20
   MovementSpeed: 12
+=======
+  Acceleration: 5
+  Deceleration: 2
+  MovementSpeed: 2
+>>>>>>> Stashed changes
   Boss: {fileID: 1337571955}
 --- !u!58 &1985871237
 CircleCollider2D:

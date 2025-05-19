@@ -27,6 +27,17 @@ public class TDControl : MonoBehaviour
 
 
 
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<BossDamaged>(PlayerKnockback);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Unsubscribe<BossDamaged>(PlayerKnockback);
+    }
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -62,6 +73,7 @@ public class TDControl : MonoBehaviour
 
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.deltaTime);
             rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
+
         }
 
         else if (moveInput == Vector2.zero)
@@ -93,4 +105,12 @@ public class TDControl : MonoBehaviour
 
     }
 
+    private void PlayerKnockback(BossDamaged e)
+    {
+        Vector2 pushdirection = gameObject.transform.position - Boss.position;
+        Vector2 multipliedforce = pushdirection.normalized * 10f;
+
+        rb.AddForce(multipliedforce, ForceMode2D.Impulse);
+        Debug.Log("Kncokback applied");
+    }
 }
