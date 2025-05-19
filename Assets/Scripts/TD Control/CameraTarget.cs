@@ -15,7 +15,7 @@ public class CameraTarget : MonoBehaviour
     [SerializeField] private float minZoom = 1f;
     [SerializeField] private float maxZoom = 5f;
 
-    private void Update()
+    private void LateUpdate()
     {
         GetMidPoint();
         CameraControl();
