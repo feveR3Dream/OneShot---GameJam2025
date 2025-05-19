@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -334,6 +335,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6d89ad7c8ac05479ccd6d740f6d850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 519420031}
+  player: {fileID: 1985871235}
+  boss: {fileID: 1337571955}
+  speed: 1.5
+  minZoom: 8
+  maxZoom: 20
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337571955}
   - component: {fileID: 1337571954}
+  - component: {fileID: 1337571956}
   m_Layer: 0
   m_Name: Big Fat Ugly
   m_TagString: Untagged
@@ -596,12 +616,25 @@ Transform:
   m_GameObject: {fileID: 1337571953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.263595, y: 0.65797865, z: 0}
+  m_LocalPosition: {x: 6.32, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337571956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337571953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e615043e5e3d0dc4aad1787b5da871ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phase: 0
 --- !u!1 &1517634309
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,9 +937,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyColl: {fileID: 1985871237}
-  acceleration: 5
-  deceleration: 20
-  movementSpeed: 12
+  Acceleration: 20
+  Deceleration: 15
+  MovementSpeed: 12
 --- !u!58 &1985871237
 CircleCollider2D:
   m_ObjectHideFlags: 0

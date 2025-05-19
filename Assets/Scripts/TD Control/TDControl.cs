@@ -9,9 +9,9 @@ public class TDControl : MonoBehaviour
     [SerializeField] private Collider2D bodyColl;
 
     [Header("Player Movement Info")]
-    [SerializeField] private float acceleration;
-    [SerializeField] private float deceleration;
-    [SerializeField] private float movementSpeed;
+    public float Acceleration;
+    public float Deceleration;
+    public float MovementSpeed;
 
     private Rigidbody2D rb;
 
@@ -32,7 +32,7 @@ public class TDControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-       PlayerMove(acceleration, deceleration, InputManager.Move);
+       PlayerMove(Acceleration, Deceleration, InputManager.Move);
     }
 
     #region Movement
@@ -44,7 +44,7 @@ public class TDControl : MonoBehaviour
         {
 
             Vector2 targetVelocity = Vector2.zero;
-            targetVelocity = new Vector2(moveInput.x, moveInput.y) * movementSpeed;
+            targetVelocity = new Vector2(moveInput.x, moveInput.y) * MovementSpeed;
 
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.deltaTime);
             rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
