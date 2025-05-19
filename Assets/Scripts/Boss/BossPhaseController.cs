@@ -110,7 +110,7 @@ public class BossPhaseController : MonoBehaviour
         AuraPush();
         PhaseIncrease();
 
-        EventDispatcher.Instance.SendEvent(new BossDamaged());
+        
     }
 
     
