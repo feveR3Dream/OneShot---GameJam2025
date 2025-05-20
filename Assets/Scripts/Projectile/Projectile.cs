@@ -35,15 +35,20 @@ public class Projectile : MonoBehaviour
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
             Debug.Log("is weak");
+            EventDispatcher.Instance.SendEvent(new BossHurt());
             //hurt boss
+            Destroy(gameObject);
         }
         else
         {
             Debug.Log("is not weak");
+            Destroy(gameObject);
             //check if boss or obstacle
             //if obstacle -> check pierce -> if yes, pierce, if no, big lazer -> spawn thingy
             //if boss -> EVENT DISPATCHER -> big lazer -> spawn thingy
         }
+
+        Destroy(gameObject, 3f);
     }
 
 
