@@ -15,10 +15,6 @@ public struct BulletSpawn
 };
 #endregion
 
-#region PlayerGotTooClose: BOSS GET AWAY FROM ME -> BOSS PHASE CONTROLLER
-public struct PlayerGotTooClose { };
-#endregion
-
 #region BossHurt: PROJECTILE -> BOSS PHASE CONTROLLER
 public struct BossHurt { };
 #endregion

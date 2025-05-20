@@ -37,19 +37,17 @@ public class BossPhaseController : MonoBehaviour
 
     private void OnEnable()
     {
-        EventDispatcher.Instance.Subscribe<PlayerGotTooClose>(PlayerTooClose);
         EventDispatcher.Instance.Subscribe<BossHurt>(Hurt);
     }
 
     private void OnDisable()
     {
-        EventDispatcher.Instance.Unsubscribe<PlayerGotTooClose>(PlayerTooClose);
         EventDispatcher.Instance.Unsubscribe<BossHurt>(Hurt);
     }
 
     private void Update()
     {
-        //CooldownProcessor();
+        CooldownProcessor();
         if (Input.GetKeyDown(KeyCode.F))
         {
             EventDispatcher.Instance.SendEvent(new BossHurt());
@@ -69,29 +67,29 @@ public class BossPhaseController : MonoBehaviour
             }
             else
             {
-                /*switch (ability)
+                switch (ability)
                 {
                     case AbilityName.Spikey:
-                        Ability1(ability);
+                        //Ability1(ability);
                         break;
                     case AbilityName.Shield:
-                        Ability2(ability);
+                        //Ability2(ability);
                         break;
                     case AbilityName.EggProducer:
                         Ability3(ability);
                         break;
-                }*/
+                }
             }
         }
             
     }
     #region Boss Mechanics Function
-    private void AuraPush()
+    private void FireBeam()
     {
-        GameObject ForceClone = Instantiate(ProjectilesPrefab[0], transform.position, Quaternion.identity);
-        ForceClone.GetComponent<I_ProjectileHostile>().SetOwner(gameObject);
-        ForceClone.SetActive(true);
-        Destroy(ForceClone, 1f);
+        GameObject LaserBeam = Instantiate(ProjectilesPrefab[0], transform.position, Quaternion.identity);
+        LaserBeam.SetActive(true);
+        LaserBeam.GetComponent<I_ProjectileHostile>().Fire();
+        Destroy(LaserBeam, 3f);
     }
     private void Ability1(AbilityName name)
     {
@@ -109,8 +107,8 @@ public class BossPhaseController : MonoBehaviour
 
     private void Ability3(AbilityName name)
     {
-        abilitiesCooldown[name].Cooldown = 2f;
-        //ChangeWeakspot();
+        abilitiesCooldown[name].Cooldown = 5f;
+        FireBeam();
     }
     #endregion
 
@@ -148,15 +146,9 @@ public class BossPhaseController : MonoBehaviour
         }
     }
 
-    private void PlayerTooClose(PlayerGotTooClose e)
-    {
-        AuraPush();
-    }
-
     private void Hurt(BossHurt e)
     {
         //Some other visual shit here
-        AuraPush();
         PhaseIncrease();
         ChangeWeakspot();
     }
