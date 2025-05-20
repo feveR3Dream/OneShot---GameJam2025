@@ -79,7 +79,7 @@ LineRenderer:
   - {x: 20, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 2
+    widthMultiplier: 8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -213,11 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f5e2a64e2d1ce4ab433f26eb84a472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpPrefab: {fileID: 7563118814187133831, guid: 936e099ced840bd4db607cc6c4a8f88a, type: 3}
   lineRenderer: {fileID: 8416986007262144718}
   layerMask:
     serializedVersion: 2
     m_Bits: 33554432
   warningBeam: {fileID: 2100000, guid: f47d53bc42b365945a23c776d6771fdb, type: 2}
   realBeam: {fileID: 2100000, guid: d0d4955a3ccf0474884c9900838c0ad3, type: 2}
-  setBeamLength: 50
+  setBeamLength: 20
   setWarningTimer: 2

@@ -38,8 +38,8 @@ public class PickupProjectile : MonoBehaviour
         Collider2D playerCollider = Physics2D.OverlapCircle(this.transform.position, radius, LayerMask.GetMask("Player"));
 
         Vector2 temp = Vector2.Lerp(visualProjectile.transform.position, 
-            playerCollider != null ? playerCollider.transform.position : this.transform.position, 
-            lerpToPlayerSpeed * Time.deltaTime);
+        playerCollider != null ? playerCollider.transform.position : this.transform.position, 
+        lerpToPlayerSpeed * Time.deltaTime);
 
         visualProjectile.transform.position = temp;
 

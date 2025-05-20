@@ -5,12 +5,11 @@ public class GunController : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform firePoint;
 
     [Header("Values")]
     [SerializeField] private bool canFire = true;
-    [SerializeField] private float searchAmmoRad = 2.5f;
     private void Update()
     {
         Fire();
@@ -21,8 +20,8 @@ public class GunController : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && canFire)
         {
             canFire = false;
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            projectile.GetComponent<Projectile>().IsBullet(true);
+            Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            projectile.owner = this;
         }
     }
 

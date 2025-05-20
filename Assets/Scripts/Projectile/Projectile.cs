@@ -1,8 +1,6 @@
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 public class Projectile : MonoBehaviour
 {
@@ -15,9 +13,14 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float slowPercent; // FOR TUNG
     [SerializeField] public float currentSpeed;
 
+    public GunController owner;
+
     // Booleans
     private bool isBullet = true;
-
+    private void Start()
+    {
+        Invoke("WhiffedShot", 3f);
+    }
 
     private void FixedUpdate()
     {
@@ -34,24 +37,28 @@ public class Projectile : MonoBehaviour
         Debug.Log("collided!");
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
+            owner.SetFire(true);
             Debug.Log("is weak");
             EventDispatcher.Instance.SendEvent(new BossHurt());
             //hurt boss
             Destroy(gameObject);
         }
-        else
+/*        else
         {
+            EventDispatcher.Instance.SendEvent(new BossWhiffed());
             Debug.Log("is not weak");
             Destroy(gameObject);
-            //check if boss or obstacle
-            //if obstacle -> check pierce -> if yes, pierce, if no, big lazer -> spawn thingy
-            //if boss -> EVENT DISPATCHER -> big lazer -> spawn thingy
-        }
+        }*/
 
-        Destroy(gameObject, 3f);
+        EventDispatcher.Instance.SendEvent(new BossWhiffed());
+        Destroy(gameObject);
     }
 
-
+    private void WhiffedShot()
+    {
+        Destroy(gameObject);
+        EventDispatcher.Instance.SendEvent(new BossWhiffed());
+    }
     public void IsBullet(bool bullet)
     {
         isBullet = bullet;

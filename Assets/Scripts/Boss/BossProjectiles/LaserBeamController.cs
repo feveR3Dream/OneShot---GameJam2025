@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserBeamController : MonoBehaviour, I_ProjectileHostile
 {
+    [SerializeField] private GameObject pickUpPrefab;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Material warningBeam;
@@ -20,10 +21,14 @@ public class LaserBeamController : MonoBehaviour, I_ProjectileHostile
     private IEnumerator SetBeamRaycast()
     {
         Vector2 dir = target.transform.position - transform.position;
+        Vector2 point = Vector2.Lerp(transform.position, target.transform.position, Random.Range(0.8f,1f));
 
         lineRenderer.SetPosition(1, dir * setBeamLength);
         yield return StartCoroutine(SetWarningBeam());
         StartCoroutine(SetRealBeam(dir));
+
+        Vector2 randomPos = new Vector2(point.x + Random.Range(-3f, 3f), point.y + Random.Range(-3f, 3f));
+        Instantiate(pickUpPrefab, randomPos, Quaternion.identity);
     }
 
     private IEnumerator SetWarningBeam()
@@ -53,6 +58,10 @@ public class LaserBeamController : MonoBehaviour, I_ProjectileHostile
         yield return null;
     }
 
+    private void SetPickUp()
+    {
+
+    }
 
     public void Fire()
     {

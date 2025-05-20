@@ -38,20 +38,18 @@ public class BossPhaseController : MonoBehaviour
     private void OnEnable()
     {
         EventDispatcher.Instance.Subscribe<BossHurt>(Hurt);
+        EventDispatcher.Instance.Subscribe<BossWhiffed>(PlayerWhiffed);
     }
 
     private void OnDisable()
     {
         EventDispatcher.Instance.Unsubscribe<BossHurt>(Hurt);
+        EventDispatcher.Instance.Unsubscribe<BossWhiffed>(PlayerWhiffed);
     }
 
     private void Update()
     {
-        CooldownProcessor();
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            EventDispatcher.Instance.SendEvent(new BossHurt());
-        }
+        //CooldownProcessor();
     }
 
     private void CooldownProcessor()
@@ -76,7 +74,7 @@ public class BossPhaseController : MonoBehaviour
                         //Ability2(ability);
                         break;
                     case AbilityName.EggProducer:
-                        Ability3(ability);
+                        //Ability3(ability);
                         break;
                 }
             }
@@ -89,7 +87,7 @@ public class BossPhaseController : MonoBehaviour
         GameObject LaserBeam = Instantiate(ProjectilesPrefab[0], transform.position, Quaternion.identity);
         LaserBeam.SetActive(true);
         LaserBeam.GetComponent<I_ProjectileHostile>().Fire();
-        Destroy(LaserBeam, 3f);
+        Destroy(LaserBeam, 1.5f);
     }
     private void Ability1(AbilityName name)
     {
@@ -144,6 +142,11 @@ public class BossPhaseController : MonoBehaviour
                 //LOLOLOL
                 break;
         }
+    }
+
+    private void PlayerWhiffed(BossWhiffed e)
+    {
+        FireBeam();
     }
 
     private void Hurt(BossHurt e)

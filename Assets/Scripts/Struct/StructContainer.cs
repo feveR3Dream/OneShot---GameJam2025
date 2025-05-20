@@ -18,3 +18,10 @@ public struct BulletSpawn
 #region BossHurt: PROJECTILE -> BOSS PHASE CONTROLLER
 public struct BossHurt { };
 #endregion
+
+#region BossWhiffed PROJECTILE -> BOSS PHASE CONTROLLER
+public struct BossWhiffed
+{
+    
+}
+#endregion
