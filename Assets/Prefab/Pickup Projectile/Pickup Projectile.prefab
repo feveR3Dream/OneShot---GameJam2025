@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3301943629999782246, guid: 0e6cff2ca8cf3aa41b88ba14f9438396, type: 3}
   radius: 2.5
-  lerpToPlayerSpeed: 10
+  lerpToPlayerSpeed: 15

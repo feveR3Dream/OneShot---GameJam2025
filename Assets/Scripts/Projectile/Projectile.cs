@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     private bool isBullet = true;
     private void Start()
     {
-        Invoke("WhiffedShot", 3f);
+        Invoke("WhiffedShot", 2f);
     }
 
     private void FixedUpdate()
@@ -43,15 +43,12 @@ public class Projectile : MonoBehaviour
             //hurt boss
             Destroy(gameObject);
         }
-/*        else
+        else
         {
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
             Debug.Log("is not weak");
             Destroy(gameObject);
-        }*/
-
-        EventDispatcher.Instance.SendEvent(new BossWhiffed());
-        Destroy(gameObject);
+        }
     }
 
     private void WhiffedShot()
