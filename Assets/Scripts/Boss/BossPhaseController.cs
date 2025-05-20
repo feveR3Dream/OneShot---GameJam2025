@@ -82,6 +82,7 @@ public class BossPhaseController : MonoBehaviour
         abilitiesCooldown[name].Cooldown = 5f;
         GameObject WallRotator = Instantiate(ProjectilesPrefab[1], transform.position, Quaternion.identity);
         WallRotator.SetActive(true);
+        Destroy(WallRotator, 10f);
     }
 
     private void Ability2(AbilityName name)
