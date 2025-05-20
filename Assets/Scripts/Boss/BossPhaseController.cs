@@ -35,6 +35,16 @@ public class BossPhaseController : MonoBehaviour
         {AbilityName.EggProducer, new AbilityCooldown(true, 2f)},
     };
 
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<PlayerGotTooClose>(PlayerTooClose);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Unsubscribe<PlayerGotTooClose>(PlayerTooClose);
+    }
+
     private void Update()
     {
         CooldownProcessor();
@@ -80,15 +90,15 @@ public class BossPhaseController : MonoBehaviour
     private void Ability1(AbilityName name)
     {
         abilitiesCooldown[name].Cooldown = 5f;
-        GameObject WallRotator = Instantiate(ProjectilesPrefab[1], transform.position, Quaternion.identity);
+        /*GameObject WallRotator = Instantiate(ProjectilesPrefab[1], transform.position, Quaternion.identity);
         WallRotator.SetActive(true);
-        Destroy(WallRotator, 10f);
+        Destroy(WallRotator, 10f);*/
     }
 
     private void Ability2(AbilityName name)
     {
         abilitiesCooldown[name].Cooldown = 4f;
-        AuraPush();
+        //AuraPush();
     }
 
     private void Ability3(AbilityName name)
@@ -131,6 +141,11 @@ public class BossPhaseController : MonoBehaviour
         }
     }
 
+    private void PlayerTooClose(PlayerGotTooClose e)
+    {
+        AuraPush();
+    }
+
     public void Hurt()
     {
         //Some other visual shit here
@@ -140,5 +155,4 @@ public class BossPhaseController : MonoBehaviour
         
     }
 
-    
 }

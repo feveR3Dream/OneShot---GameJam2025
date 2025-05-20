@@ -14,3 +14,7 @@ public struct BulletSpawn
     public float timer;
 };
 #endregion
+
+#region BOSS GET AWAY FROM ME -> BOSS PHASE CONTROLLER
+public struct PlayerGotTooClose { };
+#endregion
