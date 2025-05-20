@@ -6,19 +6,31 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float Speed;
+    [Header("References")]
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private LayerMask weakspot;
+
+
+    [Header("Values")]
+    [SerializeField] private float slowPercent; // FOR TUNG
     [SerializeField] public float currentSpeed;
-    [SerializeField] Rigidbody2D _rb;
-    [SerializeField] LayerMask weakspot;
+
+    // Booleans
+    private bool isBullet = true;
+
 
     private void FixedUpdate()
     {
+        if (!isBullet) return;
+
         _rb.velocity = currentSpeed * transform.right;
         currentSpeed = _rb.velocity.magnitude;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!isBullet) return;
+
         Debug.Log("collided!");
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
@@ -32,6 +44,12 @@ public class Projectile : MonoBehaviour
             //if obstacle -> check pierce -> if yes, pierce, if no, big lazer -> spawn thingy
             //if boss -> EVENT DISPATCHER -> big lazer -> spawn thingy
         }
+    }
+
+
+    public void IsBullet(bool bullet)
+    {
+        isBullet = bullet;
     }
 }
 /*

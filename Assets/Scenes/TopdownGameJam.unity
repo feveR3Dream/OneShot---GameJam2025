@@ -1233,9 +1233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e053fd7c51f771d4999982b737a05793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFire: 1
   projectilePrefab: {fileID: 3301943629999782246, guid: 0e6cff2ca8cf3aa41b88ba14f9438396, type: 3}
   firePoint: {fileID: 782292115}
+  canFire: 1
+  searchAmmoRad: 2.5
 --- !u!1 &2028136965
 GameObject:
   m_ObjectHideFlags: 0
