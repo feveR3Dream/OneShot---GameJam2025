@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         {
             owner.SetFire(true);
             Debug.Log("weak spot tagged");
-            EventDispatcher.Instance.SendEvent(new BossHurt());
+            EventDispatcher.Instance.SendEvent(new BossHurt { projectilePos = (Vector2) transform.position });
             //hurt boss
             Destroy(gameObject);
         }

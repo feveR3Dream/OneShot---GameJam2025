@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class StructContainer { }
 
-#region BossDamaged: BOSS PHASE CONTROLLER -> PLAYER CONTROLLER
-public struct BossDamaged { };
-#endregion
-
-#region BulletSpawn: SpawnBullet
-public struct BulletSpawn 
-{
-    public float timer;
-};
-#endregion
-
 #region BossHurt: PROJECTILE -> BOSS PHASE CONTROLLER
-public struct BossHurt { };
+public struct BossHurt 
+{
+    public Vector2 projectilePos;
+};
 #endregion
 
 #region BossWhiffed PROJECTILE -> BOSS PHASE CONTROLLER
 public struct BossWhiffed
 {
     
+}
+#endregion
+
+#region BossChangePhase: BOSSPHASECONTROLLER -> CAMERA MANAGER / BOSS TRIGGER SHOCKWAVE
+public struct BossChangePhase 
+{
+    public int Phase;
 }
 #endregion

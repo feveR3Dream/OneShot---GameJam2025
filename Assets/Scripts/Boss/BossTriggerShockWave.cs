@@ -2,16 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossTriggerShockWave : BossShockwave
+public class BossTriggerShockWave : MonoBehaviour
 {
+    [SerializeField] private CircleCollider2D collider2d;
+    [SerializeField] protected float pushForce;
     private PlayerController pc;
     private bool run;
+
+    private void Start()
+    {
+        collider2d = GetComponent<CircleCollider2D>();
+        collider2d.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<BossChangePhase>(PhaseChangeEventTriggered);
+    }
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Unsubscribe<BossChangePhase>(PhaseChangeEventTriggered);
+    }
+
+    private void PhaseChangeEventTriggered(BossChangePhase e)
+    {
+        collider2d.enabled = true;
+        if (e.Phase <= 3)
+            collider2d.radius += e.Phase + 2;
+    }
+
+    private void DisableCollider()
+    {
+        collider2d.enabled = false;
+        run = false;
+        if (pc != null)
+        {
+            pc.GetRigidBody().drag = 0;
+            pc.SetCanMove(true);
+            pc = null;
+        }
+    }
+
     private IEnumerator PushPlayer()
     {
         while (pc != null && run)
         {
             pc.GetRigidBody().AddForce((pc.gameObject.transform.position - this.transform.position) * pushForce, ForceMode2D.Impulse);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
         
     }
@@ -33,11 +70,10 @@ public class BossTriggerShockWave : BossShockwave
     {
         if (collision != null)
             if (collision.CompareTag("Player") == true)
-            {
-                run = false;
-                pc.SetCanMove(true);
-                pc.GetRigidBody().drag = 0;
-                pc = null;
-            }
+                DisableCollider();
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, collider2d.radius);
     }
 }
