@@ -1,12 +1,9 @@
 using UnityEngine;
 
 public class PierceManager : MonoBehaviour
-{
-<<<<<<< Updated upstream
-}
-=======
+{ 
     public static PierceManager Instance { get; private set; }
-    private int PierceStack;
+    [SerializeField] private int PierceStack;
 
     private void Awake()
     {
@@ -29,4 +26,3 @@ public class PierceManager : MonoBehaviour
         PierceStack = newValue;
     }
 }
->>>>>>> Stashed changes
