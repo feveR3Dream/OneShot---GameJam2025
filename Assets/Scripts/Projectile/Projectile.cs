@@ -8,11 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private LayerMask weakspot;
 
-
     [Header("Values")]
     [SerializeField] private float slowPercent; // FOR TUNG
     [SerializeField] public float currentSpeed;
 
+    bool canDamage = true;
     public GunController owner;
     private void Start()
     {
@@ -28,19 +28,17 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided!");
-        if ((weakspot & (1 << collision.gameObject.layer)) != 0)
+        if ((weakspot & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
             owner.SetFire(true);
-            Debug.Log("weak spot tagged");
             EventDispatcher.Instance.SendEvent(new BossHurt());
-            //hurt boss
+            canDamage = false;
             Destroy(gameObject);
         }
-        else
+        else if(canDamage)
         {
-            Debug.Log("non weak spot");
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
+            canDamage = false;
             Destroy(gameObject);
         }
     }

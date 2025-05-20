@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class PierceManager : MonoBehaviour
 {
-    public int P
 }
