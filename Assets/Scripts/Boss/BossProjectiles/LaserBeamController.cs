@@ -26,6 +26,7 @@ public class LaserBeamController : MonoBehaviour
 
     private void FireBeam(BossWhiffed e)
     {
+        StopAllCoroutines();
         lineRenderer.enabled = true;
         StartCoroutine(SetBeamRaycast());
     }
@@ -35,7 +36,7 @@ public class LaserBeamController : MonoBehaviour
         Vector2 dir = target.transform.position - transform.position;
         Vector2 point = Vector2.Lerp(transform.position, target.transform.position, Random.Range(0.8f,1f));
 
-        lineRenderer.SetPosition(1, dir * setBeamLength);
+        lineRenderer.SetPosition(1, target.transform.position * setBeamLength);
         yield return StartCoroutine(SetWarningBeam());
         StartCoroutine(SetRealBeam(dir));
 

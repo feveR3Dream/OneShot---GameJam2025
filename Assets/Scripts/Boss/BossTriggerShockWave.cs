@@ -11,6 +11,7 @@ public class BossTriggerShockWave : MonoBehaviour
 
     private void Start()
     {
+        pc = GameObject.FindAnyObjectByType<PlayerController>();
         collider2d = GetComponent<CircleCollider2D>();
         collider2d.enabled = false;
     }
@@ -26,9 +27,23 @@ public class BossTriggerShockWave : MonoBehaviour
 
     private void PhaseChangeEventTriggered(BossChangePhase e)
     {
+        
         collider2d.enabled = true;
         if (e.Phase <= 3)
             collider2d.radius += e.Phase + 2;
+        if (pc != null)
+        {
+            if (Vector2.Distance(transform.position, pc.gameObject.transform.position) > collider2d.radius)
+                collider2d.enabled = false; // kill itself
+            else
+            {
+                run = true;
+                pc.SetCanMove(false);
+                pc.GetRigidBody().drag = 1;
+                StartCoroutine(PushPlayer());
+            }
+        }
+        
     }
 
     private void DisableCollider()
@@ -39,7 +54,6 @@ public class BossTriggerShockWave : MonoBehaviour
         {
             pc.GetRigidBody().drag = 0;
             pc.SetCanMove(true);
-            pc = null;
         }
     }
 
@@ -51,19 +65,6 @@ public class BossTriggerShockWave : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision != null)
-            if (collision.CompareTag("Player") == true)
-            {
-                run = true;
-                pc = collision.GetComponent<PlayerController>();
-                pc.SetCanMove(false);
-                pc.GetRigidBody().drag = 1;
-                StartCoroutine(PushPlayer());
-            }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
