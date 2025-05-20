@@ -7,6 +7,10 @@ public class Projectile : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private LayerMask weakspot;
+    [SerializeField] private LayerMask obstacle;
+    [SerializeField] private LayerMask hittable;
+    [SerializeField] private LayerMask boss;
+
 
     [Header("Values")]
     [SerializeField] private float slowPercent; // FOR TUNG
@@ -31,11 +35,34 @@ public class Projectile : MonoBehaviour
         if ((weakspot & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
             owner.SetFire(true);
-            EventDispatcher.Instance.SendEvent(new BossHurt());
+            EventDispatcher.Instance.SendEvent(new BossHurt {projectilePos = (Vector2)transform.position });
+            PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() + 1);
+            canDamage = false;
+            Destroy(gameObject);
+            return;
+        }
+        if((obstacle & (1 << collision.gameObject.layer)) != 0 && canDamage)
+        {
+            if(PierceManager.Instance.GetPierceStack() > 0)
+            {
+                Destroy(collision.gameObject);
+                PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() - 1);
+            }
+            else
+            {
+                EventDispatcher.Instance.SendEvent(new BossWhiffed());
+                canDamage = false;
+                Destroy(gameObject);
+            }
+        }
+        if ((hittable & (1 << collision.gameObject.layer)) != 0 && canDamage)
+        {
+            Destroy(collision.gameObject);
+            owner.SetFire(true);
             canDamage = false;
             Destroy(gameObject);
         }
-        else if(canDamage)
+        if ((boss & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
             canDamage = false;
