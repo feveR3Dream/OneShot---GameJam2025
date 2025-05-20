@@ -58,8 +58,6 @@ public class GunController : MonoBehaviour
             // Instantiate bullet
             GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-            BoxCollider2D col = bullet.GetComponent<BoxCollider2D>();
-            Vector2 boxSize = col.size;
 
             // Rotate bullet
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -68,9 +66,8 @@ public class GunController : MonoBehaviour
             bullet.GetComponent<Projectile>().Initiate();
 
             bulletRb.AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
-
-
             ammo--;
+
         }
     }
 
@@ -120,12 +117,16 @@ public class GunController : MonoBehaviour
 
             if (Vector2.Distance(ammoCollider.transform.position, (Vector2) transform.position) <= 0.5f)
             {
-                ammo++;
-                canPickUp = false;
+                ReplenishAmmo();
                 Destroy(ammoCollider.gameObject);
             }
         }
-        
+    }
+
+    public void ReplenishAmmo()
+    {
+        ammo++;
+        canPickUp = false;
     }
 
     private void OnDrawGizmos()

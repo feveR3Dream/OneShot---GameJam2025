@@ -1,37 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.RenderGraphModule;
 
 public class Projectile : MonoBehaviour
 {
-    //async Task CountDownDestroy()
-    //{
-    //    await Task.Delay(2000); // Wait 2000 milliseconds = 2 seconds
-    //    if (gameObject != null)
-    //    {
-    //        EventDispatcher.Instance.SendEvent(new BulletSpawn());
-    //        Destroy(gameObject);
-    //    }
-    //}
+    [Header("References")]
+    [SerializeField] private LayerMask targetLayer;
 
+    // Coroutine
     private Coroutine deleteCoroutine = null;
-    private bool isWeakSpot;
+
+    // Check Pram
+    private bool _isWeakSpot;
+    private int weakSpotLayer;
+
+    private void Start()
+    {
+        weakSpotLayer = LayerMask.NameToLayer("WeakSpot");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (LayerMask.LayerToName(collision.gameObject.layer) == "Boss" || (LayerMask.LayerToName(collision.gameObject.layer) == "WeakSpot"))
+        if (((1 << collision.gameObject.layer) & targetLayer) != 0)
         {
+
+            _isWeakSpot = collision.gameObject.layer == weakSpotLayer;
+            //Debug.Log(LayerMask.LayerToName(collision.gameObject.layer));
+
             if (deleteCoroutine != null)
             {
                 Debug.Log("Stop");
                 StopCoroutine(deleteCoroutine);
                 deleteCoroutine = null;
             }
+
+            if (_isWeakSpot)
+            {
+                Debug.Log("Hit a weak spot!");
+            }
             deleteCoroutine = StartCoroutine(AutoDelete(0f)); // Instant Delete
+
         }
-        
     }
 
     private IEnumerator AutoDelete(float time)
