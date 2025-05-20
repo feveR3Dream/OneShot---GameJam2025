@@ -67,8 +67,6 @@ public class LaserBeamController : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             RaycastHit2D hit = Physics2D.BoxCast(ray.origin, new Vector2(4, 8), angle, ray.direction, 100f, layerMask);
-            
-            DebugDrawBoxCast(ray.origin, new Vector2(4, 8), angle, ray.direction, 100f, Color.red);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") == true)
             {
 
@@ -79,41 +77,6 @@ public class LaserBeamController : MonoBehaviour
         }
         lineRenderer.SetPosition(1, new Vector3(0, 0, 0));
         lineRenderer.enabled = false;
-    }
-
-
-
-    void DebugDrawBoxCast(Vector2 origin, Vector2 size, float angleDeg, Vector2 direction, float distance, Color color, float duration = 0.1f)
-    {
-        Quaternion rotation = Quaternion.Euler(0, 0, angleDeg);
-        Vector2 halfSize = size * 0.5f;
-
-        // Corners of the box at origin
-        Vector2 topLeft = origin + (Vector2)(rotation * new Vector3(-halfSize.x, halfSize.y));
-        Vector2 topRight = origin + (Vector2)(rotation * new Vector3(halfSize.x, halfSize.y));
-        Vector2 bottomLeft = origin + (Vector2)(rotation * new Vector3(-halfSize.x, -halfSize.y));
-        Vector2 bottomRight = origin + (Vector2)(rotation * new Vector3(halfSize.x, -halfSize.y));
-
-
-        Vector2 offset = direction.normalized * distance;
-
-        // Draw origin box
-        Debug.DrawLine(topLeft, topRight, color, duration);
-        Debug.DrawLine(topRight, bottomRight, color, duration);
-        Debug.DrawLine(bottomRight, bottomLeft, color, duration);
-        Debug.DrawLine(bottomLeft, topLeft, color, duration);
-
-        // Draw end box
-        Debug.DrawLine(topLeft + offset, topRight + offset, color, duration);
-        Debug.DrawLine(topRight + offset, bottomRight + offset, color, duration);
-        Debug.DrawLine(bottomRight + offset, bottomLeft + offset, color, duration);
-        Debug.DrawLine(bottomLeft + offset, topLeft + offset, color, duration);
-
-        // Draw sides
-        Debug.DrawLine(topLeft, topLeft + offset, color, duration);
-        Debug.DrawLine(topRight, topRight + offset, color, duration);
-        Debug.DrawLine(bottomLeft, bottomLeft + offset, color, duration);
-        Debug.DrawLine(bottomRight, bottomRight + offset, color, duration);
     }
 
 }
