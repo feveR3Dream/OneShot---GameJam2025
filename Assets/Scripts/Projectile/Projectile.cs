@@ -17,15 +17,20 @@ public class Projectile : MonoBehaviour
         currentSpeed = _rb.velocity.magnitude;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("collided!");
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
             Debug.Log("is weak");
+            //hurt boss
         }
         else
         {
             Debug.Log("is not weak");
+            //check if boss or obstacle
+            //if obstacle -> check pierce -> if yes, pierce, if no, big lazer -> spawn thingy
+            //if boss -> EVENT DISPATCHER -> big lazer -> spawn thingy
         }
     }
 }

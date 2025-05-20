@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 10574679}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10574678}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173862171}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Component
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,11 +178,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173862170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1384270284}
   - {fileID: 2074059632}
   - {fileID: 2028136970}
   - {fileID: 803213937}
@@ -198,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275177285}
   - component: {fileID: 275177286}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +216,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 10574679}
@@ -418,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552505554}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Phase3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726682230}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Component
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782292115}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +599,7 @@ GameObject:
   - component: {fileID: 803213937}
   - component: {fileID: 803213936}
   - component: {fileID: 803213938}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: KnockbackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +651,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 173862171}
@@ -678,7 +679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832771187}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Phase5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1013957659}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Phase4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1183401529}
   - component: {fileID: 1183401530}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337189388}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Phase2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,11 +856,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337571955}
-  - component: {fileID: 1337571957}
   - component: {fileID: 1337571956}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Boss
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -874,7 +874,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 10574679}
@@ -896,14 +896,46 @@ MonoBehaviour:
   ProjectilesPrefab:
   - {fileID: 73202845120909470, guid: 93d60ae8a3f5ca0499ccb0a74cfc4f04, type: 3}
   Weakspot: {fileID: 2074059631}
-  Circle: {fileID: 1337571957}
---- !u!58 &1337571957
+  Circle: {fileID: 0}
+--- !u!1 &1384270283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384270284}
+  - component: {fileID: 1384270285}
+  m_Layer: 29
+  m_Name: BossCol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1384270284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384270283}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 173862171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1384270285
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337571953}
+  m_GameObject: {fileID: 1384270283}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -926,7 +958,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -985,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622359379}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1050,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721399564}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Phase1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,7 +1117,7 @@ GameObject:
   - component: {fileID: 1985871232}
   - component: {fileID: 1985871236}
   - component: {fileID: 1985871238}
-  m_Layer: 7
+  m_Layer: 25
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1215,7 +1247,7 @@ GameObject:
   - component: {fileID: 2028136970}
   - component: {fileID: 2028136967}
   - component: {fileID: 2028136966}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ObstacleRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1290,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1721399564}
@@ -1279,9 +1311,9 @@ GameObject:
   - component: {fileID: 2074059632}
   - component: {fileID: 2074059634}
   - component: {fileID: 2074059633}
-  m_Layer: 11
+  m_Layer: 31
   m_Name: Weakspot
-  m_TagString: Weakspot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1295,8 +1327,8 @@ Transform:
   m_GameObject: {fileID: 2074059631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: -0.44100004, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 173862171}

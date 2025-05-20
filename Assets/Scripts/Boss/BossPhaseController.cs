@@ -50,7 +50,7 @@ public class BossPhaseController : MonoBehaviour
     private void Update()
     {
         //CooldownProcessor();
-        if (InputManager.Interact)
+        if (Input.GetKeyDown(KeyCode.F))
         {
             EventDispatcher.Instance.SendEvent(new BossHurt());
         }
