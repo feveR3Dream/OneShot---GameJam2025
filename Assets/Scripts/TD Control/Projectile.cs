@@ -1,31 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.RenderGraphModule;
 
 public class Projectile : MonoBehaviour
 {
+    //async Task CountDownDestroy()
+    //{
+    //    await Task.Delay(2000); // Wait 2000 milliseconds = 2 seconds
+    //    if (gameObject != null)
+    //    {
+    //        EventDispatcher.Instance.SendEvent(new BulletSpawn());
+    //        Destroy(gameObject);
+    //    }
+    //}
 
-    [SerializeField] private LayerMask bossLayer;
-    [SerializeField] private float hitRadius = 1f;
+    private Coroutine deleteCoroutine = null;
+    private bool isWeakSpot;
 
-    public void HitBoss()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, hitRadius, bossLayer);
-
-        if (hit != null )
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Boss" || (LayerMask.LayerToName(collision.gameObject.layer) == "WeakSpot"))
         {
-            Debug.Log("Boss hit: " + hit.name);
-            this.gameObject.SetActive(false);
+            if (deleteCoroutine != null)
+            {
+                Debug.Log("Stop");
+                StopCoroutine(deleteCoroutine);
+                deleteCoroutine = null;
+            }
+            deleteCoroutine = StartCoroutine(AutoDelete(0f)); // Instant Delete
         }
-
-        else
-            StartCoroutine(DisableAfterSeconds(5f));
+        
     }
 
-    private IEnumerator DisableAfterSeconds(float seconds)
+    private IEnumerator AutoDelete(float time)
     {
-        yield return new WaitForSeconds(seconds);
-        gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(time);
+
+        EventDispatcher.Instance.SendEvent(new BulletSpawn { timer = 1f });
+        Destroy(gameObject);
+       
     }
+
+    public void Initiate()
+    {
+        deleteCoroutine = StartCoroutine(AutoDelete(3f));
+    }
+
 }

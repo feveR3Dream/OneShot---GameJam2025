@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 1985871237}
   - component: {fileID: 1985871232}
   - component: {fileID: 1985871236}
+  - component: {fileID: 1985871238}
   m_Layer: 7
   m_Name: Testing Player Dummy
   m_TagString: Player
@@ -1145,9 +1146,6 @@ MonoBehaviour:
   Deceleration: 20
   MovementSpeed: 12
   Boss: {fileID: 1337571955}
-  projectilePrefab: {fileID: 3301943629999782246, guid: 0e6cff2ca8cf3aa41b88ba14f9438396, type: 3}
-  firePoint: {fileID: 782292115}
-  projectileSpeed: 10
 --- !u!58 &1985871237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1183,6 +1181,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1985871238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985871230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e053fd7c51f771d4999982b737a05793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3301943629999782246, guid: 0e6cff2ca8cf3aa41b88ba14f9438396, type: 3}
+  boss: {fileID: 1337571955}
+  bossLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  projectileLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  firePoint: {fileID: 782292115}
+  projectileSpeed: 10
+  ammo: 1
+  retrieveSpeed: 20
+  searchAmmoRad: 2.5
 --- !u!1 &2074059631
 GameObject:
   m_ObjectHideFlags: 0

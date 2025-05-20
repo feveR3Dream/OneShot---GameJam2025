@@ -25,11 +25,6 @@ public class TDControl : MonoBehaviour
     private Vector2 targetDir;
     private bool _canMove = true;
 
-    // Shooting Vars
-    private bool canShoot = true;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float projectileSpeed;
 
     private void OnEnable()
     {
@@ -67,7 +62,6 @@ public class TDControl : MonoBehaviour
     private void Update()
     {
         Debug.DrawLine((Vector2)transform.position + targetDir / 1.5f, (Vector2)transform.position + targetDir * lineRenderDistance, Color.red);
-        Fire();
     }
     #region Movement
 
@@ -127,27 +121,5 @@ public class TDControl : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(duration);
         _canMove = true;
-    }
-
-    private void Fire()
-    {
-        if (Input.GetMouseButtonDown(0) && canShoot)
-        {
-            // Get direction from firePoint to mouse
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = (mousePos - (Vector2)firePoint.position).normalized;
-
-            // Instantiate bullet
-            GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-
-            // Rotate bullet
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
-            bulletRb.AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
-
-            bullet.GetComponent<Projectile>().HitBoss();
-        }
     }
 }
