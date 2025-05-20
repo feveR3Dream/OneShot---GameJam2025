@@ -38,16 +38,22 @@ public class BossPhaseController : MonoBehaviour
     private void OnEnable()
     {
         EventDispatcher.Instance.Subscribe<PlayerGotTooClose>(PlayerTooClose);
+        EventDispatcher.Instance.Subscribe<BossHurt>(Hurt);
     }
 
     private void OnDisable()
     {
         EventDispatcher.Instance.Unsubscribe<PlayerGotTooClose>(PlayerTooClose);
+        EventDispatcher.Instance.Unsubscribe<BossHurt>(Hurt);
     }
 
     private void Update()
     {
-        CooldownProcessor();
+        //CooldownProcessor();
+        if (InputManager.Interact)
+        {
+            EventDispatcher.Instance.SendEvent(new BossHurt());
+        }
     }
 
     private void CooldownProcessor()
@@ -63,7 +69,7 @@ public class BossPhaseController : MonoBehaviour
             }
             else
             {
-                switch (ability)
+                /*switch (ability)
                 {
                     case AbilityName.Spikey:
                         Ability1(ability);
@@ -74,12 +80,12 @@ public class BossPhaseController : MonoBehaviour
                     case AbilityName.EggProducer:
                         Ability3(ability);
                         break;
-                }
+                }*/
             }
         }
             
     }
-    #region Abilities Function
+    #region Boss Mechanics Function
     private void AuraPush()
     {
         GameObject ForceClone = Instantiate(ProjectilesPrefab[0], transform.position, Quaternion.identity);
@@ -104,10 +110,11 @@ public class BossPhaseController : MonoBehaviour
     private void Ability3(AbilityName name)
     {
         abilitiesCooldown[name].Cooldown = 2f;
-        ChangeWeakspot();
+        //ChangeWeakspot();
     }
     #endregion
 
+    #region Boss Change Weakspot
     private void ChangeWeakspot()
     {
         // Get the center and radius in world space
@@ -129,7 +136,7 @@ public class BossPhaseController : MonoBehaviour
 
         Weakspot.transform.position = edgePosition;
     }
-
+    #endregion
     private void PhaseIncrease()
     {
         Phase += 1;
@@ -146,13 +153,12 @@ public class BossPhaseController : MonoBehaviour
         AuraPush();
     }
 
-    public void Hurt()
+    private void Hurt(BossHurt e)
     {
         //Some other visual shit here
         AuraPush();
         PhaseIncrease();
         ChangeWeakspot();
-        
     }
 
 }

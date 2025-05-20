@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class StructContainer { }
 
-#region BOSS PHASE CONTROLLER -> PLAYER CONTROLLER
+#region BossDamaged: BOSS PHASE CONTROLLER -> PLAYER CONTROLLER
 public struct BossDamaged { };
 #endregion
 
-#region SpawnBullet
+#region BulletSpawn: SpawnBullet
 public struct BulletSpawn 
 {
     public float timer;
 };
 #endregion
 
-#region BOSS GET AWAY FROM ME -> BOSS PHASE CONTROLLER
+#region PlayerGotTooClose: BOSS GET AWAY FROM ME -> BOSS PHASE CONTROLLER
 public struct PlayerGotTooClose { };
+#endregion
+
+#region BossHurt: PROJECTILE -> BOSS PHASE CONTROLLER
+public struct BossHurt { };
 #endregion
