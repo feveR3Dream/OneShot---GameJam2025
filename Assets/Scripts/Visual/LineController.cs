@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,18 +12,29 @@ public class LineController : MonoBehaviour
 {
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private float _linewidth = 0.1f;
-    [SerializeField] private Transform[] points;
+    [SerializeField] private Transform _pointContainer;
+    private List<Transform> _points = new();
 
     private void Awake()
     {
         if (_lineRenderer == null)
         {
-            _lineRenderer = GetComponent<LineRenderer>();
+            if (GetComponent<LineRenderer>() != null)
+            {
+                _lineRenderer = GetComponent<LineRenderer>();
+            }
+            else
+            {
+                _lineRenderer = gameObject.AddComponent<LineRenderer>();
+            }
         }
+
+        _lineRenderer.loop = true;
     }
 
     private void Start()
     {
+        UpdatePoints();
         SetUpLine();
     }
 
@@ -30,18 +43,29 @@ public class LineController : MonoBehaviour
         UpdateLine();
     }
 
+
+
+
     private void SetUpLine()
     {
-        _lineRenderer.positionCount = points.Length;
+        _lineRenderer.positionCount = _points.Count;
         _lineRenderer.startWidth = _linewidth;
+    }
 
+    private void UpdatePoints()
+    {
+        _points.Clear();
+        foreach (Transform point in _pointContainer)
+        {
+            _points.Add(point);
+        }
     }
 
     private void UpdateLine()
     {
-        for (int i = 0; i < points.Length; i++)
+        for (int i = 0; i < _points.Count; i++)
         {
-            _lineRenderer.SetPosition(i, points[i].position);
+            _lineRenderer.SetPosition(i, _points[i].position);
         }
     }
 
@@ -50,8 +74,11 @@ public class LineController : MonoBehaviour
         _lineRenderer.material = material;
     }
 
-    public void GenerateLine()
+
+
+    public void RefreshLine()
     {
+        UpdatePoints();
         SetUpLine();
         UpdateLine();
     }
@@ -77,7 +104,7 @@ public class LineControllerEditor : Editor
 
         if (GUILayout.Button("Generate Line"))
         {
-            setupPointsScripts.GenerateLine();
+            setupPointsScripts.RefreshLine();
         }    
         
         if (GUILayout.Button("Clear Line"))
