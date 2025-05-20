@@ -1,18 +1,27 @@
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float Speed;
+    [Header("References")]
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private LayerMask weakspot;
+
+
+    [Header("Values")]
+    [SerializeField] private float slowPercent; // FOR TUNG
     [SerializeField] public float currentSpeed;
-    [SerializeField] Rigidbody2D _rb;
-    [SerializeField] LayerMask weakspot;
+
+    public GunController owner;
+    private void Start()
+    {
+        Invoke("WhiffedShot", 2f);
+    }
 
     private void FixedUpdate()
     {
+
         _rb.velocity = currentSpeed * transform.right;
         currentSpeed = _rb.velocity.magnitude;
     }
@@ -22,16 +31,24 @@ public class Projectile : MonoBehaviour
         Debug.Log("collided!");
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
-            Debug.Log("is weak");
+            owner.SetFire(true);
+            Debug.Log("weak spot tagged");
+            EventDispatcher.Instance.SendEvent(new BossHurt());
             //hurt boss
+            Destroy(gameObject);
         }
         else
         {
-            Debug.Log("is not weak");
-            //check if boss or obstacle
-            //if obstacle -> check pierce -> if yes, pierce, if no, big lazer -> spawn thingy
-            //if boss -> EVENT DISPATCHER -> big lazer -> spawn thingy
+            Debug.Log("non weak spot");
+            EventDispatcher.Instance.SendEvent(new BossWhiffed());
+            Destroy(gameObject);
         }
+    }
+
+    private void WhiffedShot()
+    {
+        Destroy(gameObject);
+        EventDispatcher.Instance.SendEvent(new BossWhiffed());
     }
 }
 /*

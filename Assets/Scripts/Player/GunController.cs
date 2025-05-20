@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private bool canFire = true;
-    [SerializeField] private GameObject projectilePrefab;
+
+    [Header("References")]
+    [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform firePoint;
 
+    [Header("Values")]
+    [SerializeField] private bool canFire = true;
     private void Update()
     {
         Fire();
@@ -16,13 +19,15 @@ public class GunController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canFire)
         {
-            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            canFire = false;
+            Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            projectile.owner = this;
         }
     }
 
-    public void SetFireTrue()
+    public void SetFire(bool newValue)
     {
-        canFire = true;
+        canFire = newValue;
     }
 }
 /*
