@@ -14,32 +14,32 @@ TagManager:
   - Ground
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - ProjectileWeakSpotCol
+  - ProjectileObstacleCol
   - Boss
-  - Player
-  - ProjectileHostile
-  - ProjectilePlayer
-  - ObstacleHostile
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacle
+  - Weakspot
   m_SortingLayers:
   - name: Default
     uniqueID: 0

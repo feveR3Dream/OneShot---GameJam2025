@@ -3,6 +3,30 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [SerializeField] private bool canFire = true;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
+
+    private void Update()
+    {
+        Fire();
+    }
+
+    void Fire()
+    {
+        if(Input.GetMouseButtonDown(0) && canFire)
+        {
+            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        }
+    }
+
+    public void SetFireTrue()
+    {
+        canFire = true;
+    }
+}
+/*
+{
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform boss;
@@ -20,6 +44,8 @@ public class GunController : MonoBehaviour
 
     private bool canShoot = true;
     private bool canPickUp = false;
+
+    private int _pierceStack = 1;
 
     public float Ammo => ammo;
 
@@ -63,7 +89,7 @@ public class GunController : MonoBehaviour
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            bullet.GetComponent<Projectile>().Initiate();
+            bullet.GetComponent<Projectile>().Initiate(_pierceStack);
 
             bulletRb.AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
             ammo--;
@@ -79,7 +105,6 @@ public class GunController : MonoBehaviour
     private void RespawnAmmo(BulletSpawn e)
     {
         StartCoroutine(_respawnTime(e.timer));
-
     }
 
     private IEnumerator _respawnTime(float timer)
@@ -117,16 +142,11 @@ public class GunController : MonoBehaviour
 
             if (Vector2.Distance(ammoCollider.transform.position, (Vector2) transform.position) <= 0.5f)
             {
-                ReplenishAmmo();
+                ammo++;
+                canPickUp = false;
                 Destroy(ammoCollider.gameObject);
             }
         }
-    }
-
-    public void ReplenishAmmo()
-    {
-        ammo++;
-        canPickUp = false;
     }
 
     private void OnDrawGizmos()
@@ -134,3 +154,4 @@ public class GunController : MonoBehaviour
         Gizmos.DrawWireSphere(this.gameObject.transform.position, searchAmmoRad);
     }
 }
+*/

@@ -4,67 +4,29 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TDControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Collider2D bodyColl;
 
-    [Header("Values")]
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float Acceleration;
+    [SerializeField] private float Deceleration;
+    [SerializeField] private float MovementSpeed;
     [SerializeField] private float lineRenderDistance;
-
-    [Header("Player Movement Info")]
-    public float Acceleration;
-    public float Deceleration;
-    public float MovementSpeed;
-
-    private Rigidbody2D rb;
-    [SerializeField] private Transform Boss;
 
     // Movement Vars
     private Vector2 moveVelocity;
     private Vector2 targetDir;
-    private bool _canMove = true;
-
-
-    private void OnEnable()
-    {
-        EventDispatcher.Instance.Subscribe<BossDamaged>(PlayerKnockback);
-    }
-
-    private void OnDisable()
-    {
-        EventDispatcher.Instance.Unsubscribe<BossDamaged>(PlayerKnockback);
-    }
-
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-        rb.mass = 0;
-        rb.gravityScale = 0;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
+    [SerializeField] private bool _canMove = true;
 
     private void FixedUpdate()
     {
+        PlayerLook();
         if (_canMove)
         {
-            PlayerMove(Acceleration, Deceleration, InputManager.Move);
+            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            PlayerMove(Acceleration, Deceleration, moveInput);
         }
-
-        AutoLookAtBoss();
-        //PlayerLook();
     }
-
-    private void Update()
-    {
-        Debug.DrawLine((Vector2)transform.position + targetDir / 1.5f, (Vector2)transform.position + targetDir * lineRenderDistance, Color.red);
-    }
-    #region Movement
-
     private void PlayerMove(float acceleration, float deceleration, Vector2 moveInput)
     {
         // Check movement input val
@@ -86,15 +48,6 @@ public class TDControl : MonoBehaviour
         }
     }
 
-    #endregion
-
-    private void AutoLookAtBoss()
-    {
-        Vector2 direction = Boss.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-    }
-
     private void PlayerLook()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -106,6 +59,27 @@ public class TDControl : MonoBehaviour
         rb.rotation = angle;
     }
 
+    public Rigidbody2D GetRigidBody()
+    {
+        return rb;
+    }
+
+    public void SetCanMove(bool newValue)
+    {
+        _canMove = newValue;
+    }
+
+    /*
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<BossDamaged>(PlayerKnockback);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Unsubscribe<BossDamaged>(PlayerKnockback);
+    } 
+    
     private void PlayerKnockback(BossDamaged e)
     {
         _canMove = false;
@@ -122,4 +96,5 @@ public class TDControl : MonoBehaviour
         yield return new WaitForSecondsRealtime(duration);
         _canMove = true;
     }
+    */
 }
