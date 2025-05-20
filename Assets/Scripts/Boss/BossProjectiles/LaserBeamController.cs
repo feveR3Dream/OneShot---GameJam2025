@@ -52,15 +52,11 @@ public class LaserBeamController : MonoBehaviour, I_ProjectileHostile
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") == true)
         {
+            Destroy(hit.collider.gameObject);
             Debug.Log("Hit target");
             Debug.DrawLine(ray.origin, hit.point);
         }
         yield return null;
-    }
-
-    private void SetPickUp()
-    {
-
     }
 
     public void Fire()

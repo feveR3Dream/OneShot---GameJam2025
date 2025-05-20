@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
-  pushForce: 20
+  pushForce: 15
 --- !u!1 &832771186
 GameObject:
   m_ObjectHideFlags: 0

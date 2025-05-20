@@ -14,9 +14,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] public float currentSpeed;
 
     public GunController owner;
-
-    // Booleans
-    private bool isBullet = true;
     private void Start()
     {
         Invoke("WhiffedShot", 2f);
@@ -24,7 +21,6 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isBullet) return;
 
         _rb.velocity = currentSpeed * transform.right;
         currentSpeed = _rb.velocity.magnitude;
@@ -32,21 +28,19 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isBullet) return;
-
         Debug.Log("collided!");
         if ((weakspot & (1 << collision.gameObject.layer)) != 0)
         {
             owner.SetFire(true);
-            Debug.Log("is weak");
+            Debug.Log("weak spot tagged");
             EventDispatcher.Instance.SendEvent(new BossHurt());
             //hurt boss
             Destroy(gameObject);
         }
         else
         {
+            Debug.Log("non weak spot");
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
-            Debug.Log("is not weak");
             Destroy(gameObject);
         }
     }
@@ -55,10 +49,6 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
         EventDispatcher.Instance.SendEvent(new BossWhiffed());
-    }
-    public void IsBullet(bool bullet)
-    {
-        isBullet = bullet;
     }
 }
 /*

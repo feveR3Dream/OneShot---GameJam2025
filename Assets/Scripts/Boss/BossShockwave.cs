@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BossShockwave : MonoBehaviour
 {
-    [SerializeField] float duration;
-    [SerializeField] float pushForce;
+    [SerializeField] protected float duration;
+    [SerializeField] protected float pushForce;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null)
@@ -18,7 +18,7 @@ public class BossShockwave : MonoBehaviour
         }
     }
 
-    IEnumerator Knockback(float duration, PlayerController pc, float PushForce)
+    protected IEnumerator Knockback(float duration, PlayerController pc, float PushForce)
     {
         pc.SetCanMove(false);
         pc.GetRigidBody().drag = 1;
