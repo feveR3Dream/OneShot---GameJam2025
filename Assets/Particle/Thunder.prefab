@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6278506394831961809}
   - component: {fileID: 2139863378670694990}
   - component: {fileID: 1410115857951687923}
+  - component: {fileID: 6150752723244107675}
   m_Layer: 0
   m_Name: Thunder
   m_TagString: Untagged
@@ -4844,6 +4845,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6150752723244107675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171423095876394386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c69779cc1e2e42b84f99de9d481ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2885080078166008159
 GameObject:
   m_ObjectHideFlags: 0

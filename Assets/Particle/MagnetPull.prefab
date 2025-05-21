@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2618467311172543767}
   - component: {fileID: 303587139153342773}
   - component: {fileID: 1299909586298518122}
+  - component: {fileID: -6550976897206887678}
   m_Layer: 0
   m_Name: MagnetPull
   m_TagString: Untagged
@@ -4830,3 +4831,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-6550976897206887678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633009788710793924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c69779cc1e2e42b84f99de9d481ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

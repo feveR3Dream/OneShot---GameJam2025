@@ -4850,6 +4850,7 @@ GameObject:
   - component: {fileID: 2625743588384696340}
   - component: {fileID: 2974389258957919530}
   - component: {fileID: 226135721853943813}
+  - component: {fileID: 2829836564709012707}
   m_Layer: 0
   m_Name: ExplodeHittable
   m_TagString: Untagged
@@ -9680,3 +9681,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2829836564709012707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449468735533026881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c69779cc1e2e42b84f99de9d481ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

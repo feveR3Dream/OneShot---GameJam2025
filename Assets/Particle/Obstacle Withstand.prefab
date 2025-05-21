@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1788160527752293183}
   - component: {fileID: 6524183929961383448}
   - component: {fileID: 2626644398198486411}
+  - component: {fileID: -5116561900420263604}
   m_Layer: 0
   m_Name: Obstacle Withstand
   m_TagString: Untagged
@@ -4839,3 +4840,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-5116561900420263604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702692454770057262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c69779cc1e2e42b84f99de9d481ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
