@@ -11,7 +11,6 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Enemy
   - 
   - 
   - 
@@ -30,13 +29,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hittable
+  - Player
+  - BossShockwave
+  - ProjectileWeakSpotCol
+  - ProjectileObstacleCol
+  - Boss
+  - Obstacle
+  - Weakspot
   m_SortingLayers:
   - name: Default
     uniqueID: 0
