@@ -341,7 +341,6 @@ Transform:
   - {fileID: 1384270284}
   - {fileID: 803213937}
   - {fileID: 1695891122}
-  - {fileID: 9011958935782803896}
   - {fileID: 1649021049}
   m_Father: {fileID: 1337571955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1586,37 +1585,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630663413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!1 &922986649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 922986650}
-  m_Layer: 0
-  m_Name: Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &922986650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922986649}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9011958935782803896}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929294196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,7 +2529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649021049
 Transform:
   m_ObjectHideFlags: 0
@@ -2589,10 +2557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c2dfb5ce4ff264b8877977d625821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thunderPrefab: {fileID: 0}
-  target: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  fireTime: 1
+  thunder: {fileID: 4171372343557056378, guid: fabc8f8f9a59ba046ba5f52c7611cea7, type: 3}
+  pickup: {fileID: 7563118814187133831, guid: 936e099ced840bd4db607cc6c4a8f88a, type: 3}
+  spotCount: 32
+  minRadius: 20
+  maxRadius: 30
 --- !u!1 &1674745746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,23 +3279,6 @@ MonoBehaviour:
   lengthPercent: 0.8
   lerpSpeed: 2.5
   distanceThreshold: 15
---- !u!1 &757488878850875721
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9011958935782803896}
-  - component: {fileID: 9011958935782803897}
-  m_Layer: 0
-  m_Name: LaserBeamGameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &5800550794559220646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3384,38 +3336,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e16b815a61c64b740a43fd9f3b89ab6f, type: 3}
---- !u!4 &9011958935782803896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757488878850875721}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 922986650}
-  m_Father: {fileID: 173862171}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9011958935782803897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757488878850875721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16bc6006c38b6f641a941cebf4a6e77c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beamPrefab: {fileID: 8825479535453181332, guid: 2462214757ce2b64fb62aee538232f46, type: 3}
-  target: {fileID: 1985871235}
-  spawnPoint: {fileID: 922986650}
-  fireTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
