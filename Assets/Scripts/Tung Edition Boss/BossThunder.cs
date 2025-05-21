@@ -1,13 +1,15 @@
-using System.Collections;
 using UnityEngine;
 
 public class BossThunder : MonoBehaviour
 {
-    [SerializeField] GameObject thunderPrefab;
-    [SerializeField] Transform target;
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] float fireTime;
-    bool isFiring;
+    [SerializeField] GameObject thunder;     // First prefab
+    [SerializeField] GameObject pickup;   // Second prefab
+
+    [SerializeField] int spotCount;         // Number of spots
+    [SerializeField] float minRadius = 3f;      // Donut inner edge
+    [SerializeField] float maxRadius = 6f;      // Donut outer edge
+
+    private Vector2[] spawnPositions;
 
     private void OnEnable()
     {
@@ -19,30 +21,22 @@ public class BossThunder : MonoBehaviour
         EventDispatcher.Instance.Unsubscribe<BossWhiffed>(FireAction);
     }
 
-    private void FixedUpdate()
+    public void FireAction(BossWhiffed context)
     {
-        if (target != null)
+        spawnPositions = new Vector2[spotCount];
+
+        for (int i = 0; i < spotCount; i++)
         {
-            Vector2 direction = target.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            Vector2 direction = Random.insideUnitCircle.normalized;
+            float distance = Random.Range(minRadius, maxRadius);
+            Vector2 position = direction * distance;
+
+            spawnPositions[i] = position;
+            Instantiate(thunder, position, Quaternion.identity);
         }
 
-        if (isFiring)
-        {
-            isFiring = false;
-            StartCoroutine(FireBeam());
-        }
-    }
-
-    private void FireAction(BossWhiffed context)
-    {
-        isFiring = true;
-    }
-
-    IEnumerator FireBeam()
-    {
-        Instantiate(thunderPrefab, spawnPoint.position, spawnPoint.rotation);
-        yield return new WaitForSeconds(fireTime);
+        // Pick one spot to spawn the centerPrefab
+        int randomIndex = Random.Range(0, spotCount);
+        Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
     }
 }

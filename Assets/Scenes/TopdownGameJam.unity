@@ -2561,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649021049
 Transform:
   m_ObjectHideFlags: 0
@@ -2589,10 +2589,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c2dfb5ce4ff264b8877977d625821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thunderPrefab: {fileID: 0}
-  target: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  fireTime: 1
+  thunder: {fileID: 2454087675334465354, guid: 7a2502b30abc95543ac4644bb872ad48, type: 3}
+  pickup: {fileID: 7563118814187133831, guid: 936e099ced840bd4db607cc6c4a8f88a, type: 3}
+  spotCount: 7
+  minRadius: 20
+  maxRadius: 50
 --- !u!1 &1674745746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &5800550794559220646
 PrefabInstance:
   m_ObjectHideFlags: 0
