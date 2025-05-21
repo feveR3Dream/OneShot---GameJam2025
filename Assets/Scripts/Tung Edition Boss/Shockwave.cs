@@ -37,6 +37,7 @@ public class Shockwave : MonoBehaviour
         if(current > endTime)
         {
             playerController.SetCanMove(true);
+            playerController.SetCollider2D(true);
             triggerShockwave = false;
         }
     }
@@ -46,6 +47,7 @@ public class Shockwave : MonoBehaviour
         triggerShockwave = true;
         current = 0;
         playerController.SetCanMove(false);
+        playerController.SetCollider2D(false);
         startPos = playerController.transform.position;
         endPos = this.transform.position + (startPos - this.transform.position).normalized * distance;
     }

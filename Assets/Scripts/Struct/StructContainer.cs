@@ -24,3 +24,9 @@ public struct BossChangePhase
     public int Phase;
 }
 #endregion
+
+public struct CameraShakeEvent 
+{
+    public float ShakeMagnitude;
+    public float ShakeDuration;
+}
