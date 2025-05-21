@@ -64,7 +64,6 @@ public class LaserEyeController : MonoBehaviour
 
         float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
 
-        rb.rotation = angle;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }
