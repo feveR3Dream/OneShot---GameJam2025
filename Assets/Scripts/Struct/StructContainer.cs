@@ -11,7 +11,7 @@ public struct BossHurt
 };
 #endregion
 
-#region BossWhiffed PROJECTILE -> BOSS PHASE CONTROLLER
+#region BossWhiffed: PROJECTILE -> BOSS PHASE CONTROLLER
 public struct BossWhiffed
 {
     
@@ -25,8 +25,18 @@ public struct BossChangePhase
 }
 #endregion
 
+#region CameraShakeEvent: 
 public struct CameraShakeEvent 
 {
     public float ShakeMagnitude;
     public float ShakeDuration;
 }
+#endregion
+
+#region PlayerWin: WIN GAME CONDITION
+public struct PlayerWin { }
+#endregion
+
+#region PlayerDie: GAME RESTART CONDITION
+public struct PlayerDie { }
+#endregion

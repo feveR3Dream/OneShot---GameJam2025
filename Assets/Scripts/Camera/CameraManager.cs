@@ -43,6 +43,8 @@ public class CameraManager : MonoBehaviour
 
     private void PivotToPlayer()
     {
+        if (player == null || boss == null) return;
+
         Vector3 bossPos = boss.position;
         Vector3 playerPos = player.position;
 

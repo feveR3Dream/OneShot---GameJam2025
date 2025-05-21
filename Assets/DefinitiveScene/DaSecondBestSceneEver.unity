@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27981877, y: 0.1426944}
   m_AnchorMax: {x: 0.72013724, y: 0.287}
-  m_AnchoredPosition: {x: 0, y: 1.935936}
+  m_AnchoredPosition: {x: 0, y: 1.9359436}
   m_SizeDelta: {x: 0.8169861, y: -4.632019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2199948
@@ -756,6 +756,7 @@ MonoBehaviour:
   animator: {fileID: 1174848056}
   retryButton: {fileID: 1413839667}
   menuButton: {fileID: 2199948}
+  screenFader: {fileID: 0}
 --- !u!1 &142250384
 GameObject:
   m_ObjectHideFlags: 0
@@ -5583,18 +5584,17 @@ MonoBehaviour:
   - {fileID: 1214234777}
   ObstacleSetup:
   - 0
-  - 04
-  - 1004
-  - 123
-  - 043
-  - 12123
-  - 3
+  - 03
+  - 1000
+  - 2000
+  - 2000
+  - 30
+  - 001200
   Obstacle:
   - {fileID: 7488536954085793294, guid: ca445cd0fbe0ed6438f37c424e27e001, type: 3}
   - {fileID: 6606476089512839742, guid: d26b8789d739d934f96b7bb74304cb3a, type: 3}
   - {fileID: 5577203717442850526, guid: 420f6c7d7adccb9419f6128398ab6f27, type: 3}
   - {fileID: 3993367390511296617, guid: 05e403f9871623749b9077f311f10792, type: 3}
-  - {fileID: 2345111589706887371, guid: ecda7dc494e1c0c4faaba5a9cf1f8f31, type: 3}
 --- !u!114 &2089791427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5910,7 +5910,7 @@ MonoBehaviour:
   boss: {fileID: 1337571955}
   lengthPercent: 0.8
   lerpSpeed: 2.5
-  distanceThreshold: 25
+  distanceThreshold: 15
 --- !u!4 &93539443927529775
 Transform:
   m_ObjectHideFlags: 0

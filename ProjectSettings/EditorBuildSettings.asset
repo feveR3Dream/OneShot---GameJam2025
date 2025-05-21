@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DefinitiveScene/Main Menu.unity
+    guid: e1b30bc4f5c66fb47b9746e7823fec4a
+  - enabled: 1
     path: Assets/DefinitiveScene/DaBestSceneEver.unity
     guid: 374c2e1bb1b20fe43a42f9e3e7787712
+  - enabled: 1
+    path: Assets/DefinitiveScene/End Screen.unity
+    guid: 640a8ad9120fe5048a035dfc6b95ac3f
   m_configObjects: {}

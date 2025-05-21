@@ -28,6 +28,12 @@ public class BossPhase : MonoBehaviour
     {
         EventDispatcher.Instance.SendEvent(new CameraShakeEvent { ShakeDuration = 0.25f, ShakeMagnitude = 0.75f });
         currentPhase++;
+
+        if (currentPhase > MaxPhase)
+        {
+            EventDispatcher.Instance.SendEvent(new PlayerWin());
+            return;
+        }
         currentPhase = Mathf.Clamp(currentPhase, 0, MaxPhase - 1);
         obstacleManager.AssignObstacles(currentPhase);
         DoShockwave();
