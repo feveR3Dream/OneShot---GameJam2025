@@ -3,11 +3,11 @@ using UnityEngine;
 
 public enum ParticleType
 {
-    EXPLOSION,
+    EXPLOSIONHIT,
     SPARK,
     HIT,
-    HEAL,
-    DEATH,
+    EXPLOSIONOST,
+    WITHSTAND,
     // Add more particles here
 }
 
@@ -15,14 +15,14 @@ public enum ParticleType
 public class ParticleManager : MonoBehaviour
 {
     [SerializeField] private ParticleList[] particleList;
-    private static ParticleManager instance;
+    public static ParticleManager instance;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public static void SpawnParticle(ParticleType type, Vector2 position, Quaternion rotation)
+    public void SpawnParticle(ParticleType type, Vector2 position, Quaternion rotation)
     {
         ParticleSystem[] particles = instance.particleList[(int)type].Particles;
 

@@ -24,19 +24,24 @@ public class BossThunder : MonoBehaviour
     public void FireAction(BossWhiffed context)
     {
         spawnPositions = new Vector2[spotCount];
+        int randomIndex = Random.Range(0, spotCount);
 
         for (int i = 0; i < spotCount; i++)
         {
             Vector2 direction = Random.insideUnitCircle.normalized;
             float distance = Random.Range(minRadius, maxRadius);
             Vector2 position = direction * distance;
-
             spawnPositions[i] = position;
-            Instantiate(thunder, position, Quaternion.identity);
+            if(i == randomIndex)
+            {
+                Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(thunder, position, Quaternion.identity);
+            }
         }
-
-        // Pick one spot to spawn the centerPrefab
-        int randomIndex = Random.Range(0, spotCount);
-        Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
     }
+
+
 }
