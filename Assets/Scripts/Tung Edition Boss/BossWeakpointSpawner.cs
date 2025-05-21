@@ -34,7 +34,7 @@ public class BossWeakpointSpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(0f, 360f));
-            GameObject spawned = Instantiate(weakpoint, transform.position, rotation);
+            GameObject spawned = Instantiate(weakpoint, transform.position, rotation, transform);
             activeWeakpoints.Add(spawned);
         }
     }
