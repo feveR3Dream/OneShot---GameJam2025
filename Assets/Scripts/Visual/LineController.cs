@@ -36,7 +36,6 @@ public class LineController : MonoBehaviour
     {
         UpdatePoints();
         SetUpLine();
-        UpdateLine();
     }
 
     void Update()

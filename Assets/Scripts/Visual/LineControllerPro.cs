@@ -26,7 +26,6 @@ public class LineControllerPro : MonoBehaviour
 
     private void Start()
     {
-
         foreach (Shapes shape in shapes)
         {
             UpdatePoints(shape);

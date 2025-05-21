@@ -21,7 +21,7 @@ public class Renamer : MonoBehaviour
             for (int i = 0; i < t.childCount; i++)
             {
                 Transform child = t.GetChild(i);
-                child.name = $"{baseName} {i}";
+                child.name = $"{baseName} ({i})";
             }
         }
     }
