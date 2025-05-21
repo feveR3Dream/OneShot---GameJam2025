@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DaBestSceneEver.unity
+    path: Assets/DefinitiveScene/DaBestSceneEver.unity
     guid: 374c2e1bb1b20fe43a42f9e3e7787712
   m_configObjects: {}
