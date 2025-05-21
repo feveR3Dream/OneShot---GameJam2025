@@ -6,7 +6,7 @@ public class LaserEyeController : MonoBehaviour
 {
     [SerializeField] private GameObject beamPrefab;
     [SerializeField] private GameObject firingPoint;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private LineRenderer lineRenderer;
 
     private Rigidbody2D rb;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959766418991511487}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 10
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7991437900632401434}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2249533263805613119}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 7
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1752292825964597557}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 6
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5604571821579757236}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5915678320959714510}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 0
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2190247522250345884}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 12
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6036337522959081452}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6133302290842497800}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 0
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8708977325923105687}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 11
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2785396742795608404}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 5
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -350,7 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411384112768824287}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 4
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698392410972631834}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1591796057868983289}
   - component: {fileID: 2185460764588088897}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7695481225944255725}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -593,7 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5199281340894924020}
   - component: {fileID: 4327743727620691193}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Negative Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8860863422967493854}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4281577792080352711}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -807,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7435648027616975935}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4224996640456307645}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 0
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -874,7 +874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5301256485127096916}
   - component: {fileID: 8780494449095260968}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Positive Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2619330910796180957}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 8
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1043,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4269579174975258136}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6351948272796734585}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 13
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6097010018776714774}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1140,7 +1140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6394336467848081298}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1171,7 +1171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127879224965965249}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 9
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1203,7 +1203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5671010186735059430}
   - component: {fileID: 2063127383353243480}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Push Magnet Visual
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -1285,7 +1285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7304360903235180760}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1379,6 +1379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagnetPull
       objectReference: {fileID: 0}
+    - target: {fileID: 2633009788710793924, guid: 358a024f06f8c5e41834a827a3933e74, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1403,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2454087675334465354, guid: fff905b16e0fc19409e56a2deb108468, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5889494641578363955, guid: fff905b16e0fc19409e56a2deb108468, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1460,6 +1464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2454087675334465354, guid: fff905b16e0fc19409e56a2deb108468, type: 3}
       insertIndex: -1
       addedObject: {fileID: 495630542623994525}
+    - targetCorrespondingSourceObject: {fileID: 2454087675334465354, guid: fff905b16e0fc19409e56a2deb108468, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7929274373100897026}
   m_SourcePrefab: {fileID: 100100000, guid: fff905b16e0fc19409e56a2deb108468, type: 3}
 --- !u!4 &4527013359795213735 stripped
 Transform:
@@ -1489,3 +1496,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 402653184
   Pull: 1
+--- !u!58 &7929274373100897026
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577203717442850526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
