@@ -7,7 +7,6 @@ public class LaserEyeController : MonoBehaviour
     [SerializeField] private GameObject beamPrefab;
     [SerializeField] private GameObject firingPoint;
     [SerializeField] private GameObject player;
-    [SerializeField] private float Cooldown;
 
     private Rigidbody2D rb;
     private Vector2 targetDir;
@@ -18,7 +17,7 @@ public class LaserEyeController : MonoBehaviour
     {
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody2D>();
-        timeBeforeFire = Cooldown;
+        timeBeforeFire = 3;
         if (player == null)
         {
             disable = true;
@@ -43,7 +42,7 @@ public class LaserEyeController : MonoBehaviour
     private void FireBeam()
     {
         GameObject bullet = Instantiate(beamPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
-        timeBeforeFire = Cooldown;
+        timeBeforeFire = Random.Range(2,5);
     }
 
     private void LookAtPlayer()
