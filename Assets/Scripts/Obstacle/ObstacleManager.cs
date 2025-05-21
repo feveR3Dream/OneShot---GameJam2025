@@ -27,7 +27,7 @@ public class ObstacleManager : MonoBehaviour
     {
         foreach (GameObject child in groupChildren[state - 1])
         {
-            Instantiate(Obstacle, child.transform.position, Quaternion.identity, child.transform);
+            Instantiate(Obstacle, child.transform.position, child.transform.rotation, child.transform);
         }
     }
 }
