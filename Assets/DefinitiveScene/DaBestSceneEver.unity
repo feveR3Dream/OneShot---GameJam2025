@@ -3632,17 +3632,18 @@ MonoBehaviour:
   - {fileID: 1214234777}
   ObstacleSetup:
   - 0
-  - 03
-  - 1000
-  - 2000
-  - 2000
-  - 30
-  - 001200
+  - 04
+  - 1004
+  - 123
+  - 043
+  - 12123
+  - 3
   Obstacle:
   - {fileID: 7488536954085793294, guid: ca445cd0fbe0ed6438f37c424e27e001, type: 3}
   - {fileID: 6606476089512839742, guid: d26b8789d739d934f96b7bb74304cb3a, type: 3}
   - {fileID: 5577203717442850526, guid: 420f6c7d7adccb9419f6128398ab6f27, type: 3}
   - {fileID: 3993367390511296617, guid: 05e403f9871623749b9077f311f10792, type: 3}
+  - {fileID: 2345111589706887371, guid: ecda7dc494e1c0c4faaba5a9cf1f8f31, type: 3}
 --- !u!114 &2089791427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3776,7 +3777,7 @@ MonoBehaviour:
   boss: {fileID: 1337571955}
   lengthPercent: 0.8
   lerpSpeed: 2.5
-  distanceThreshold: 15
+  distanceThreshold: 25
 --- !u!4 &93539443927529775
 Transform:
   m_ObjectHideFlags: 0
