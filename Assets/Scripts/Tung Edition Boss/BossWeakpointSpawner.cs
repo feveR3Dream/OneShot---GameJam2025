@@ -38,4 +38,9 @@ public class BossWeakpointSpawner : MonoBehaviour
             activeWeakpoints.Add(spawned);
         }
     }
+
+    public List<GameObject> GetWeakPoints()
+    {
+        return activeWeakpoints;
+    }
 }
