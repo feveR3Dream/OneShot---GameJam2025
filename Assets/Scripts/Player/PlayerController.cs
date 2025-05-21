@@ -41,13 +41,14 @@ public class PlayerController : MonoBehaviour
 
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.deltaTime);
             rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
-
+            //SoundManager.PlaySound(SoundType.DRONE_MOVING, 1f);
         }
 
         else if (moveInput == Vector2.zero)
         {
             moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.deltaTime);
             rb.velocity = new Vector2(moveVelocity.x, moveVelocity.y);
+            //SoundManager.PlaySound(SoundType.DRONE_STATIC, 1f);
         }
     }
 

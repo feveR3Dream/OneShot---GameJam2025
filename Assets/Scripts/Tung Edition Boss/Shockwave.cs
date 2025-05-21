@@ -45,6 +45,7 @@ public class Shockwave : MonoBehaviour
     public void TriggerShockwave(PlayerController playerController)
     {
         triggerShockwave = true;
+        SoundManager.PlaySound(SoundType.BOSS_SHOCKWAVE, 1f);
         current = 0;
         playerController.SetCanMove(false);
         playerController.SetCollider2D(false);

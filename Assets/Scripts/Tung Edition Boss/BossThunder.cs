@@ -41,6 +41,7 @@ public class BossThunder : MonoBehaviour
                 Instantiate(thunder, position, Quaternion.identity);
             }
         }
+        SoundManager.PlaySound(SoundType.HEAVY_SHOOT_SOUND, 1f);
     }
 
 
