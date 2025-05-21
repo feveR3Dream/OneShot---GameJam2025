@@ -13,11 +13,6 @@ public class PickupProjectile : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private float lerpToPlayerSpeed;
 
-    private void Start()
-    {
-        SoundManager.PlaySound(SoundType.PICKUP_SOUND, 1f);
-    }
-
     private void Update()
     {
         DetectPlayer();
@@ -38,6 +33,7 @@ public class PickupProjectile : MonoBehaviour
         {
             if (Vector2.Distance(playerCollider.transform.position, (Vector2) visualProjectile.transform.position) <= 1f) // Temporary value
             {
+                SoundManager.PlaySound(SoundType.PICKUP_SOUND, 1f);
                 playerCollider.gameObject.GetComponent<GunController>().SetFire(true);
                 Destroy(visualProjectile); 
                 Destroy(this.gameObject); 
