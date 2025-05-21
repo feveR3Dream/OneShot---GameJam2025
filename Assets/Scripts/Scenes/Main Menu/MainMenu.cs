@@ -74,7 +74,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(clipLength);
 
-        SceneManager.LoadScene("TopdownGameJam");
+        SceneManager.LoadScene("DaBestSceneEver");
     }
 
 
@@ -92,7 +92,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(currentClipLength); 
 
-        SceneManager.LoadScene("TopdownGameJam");
+        SceneManager.LoadScene("DaBestSceneEver");
     }
 
     private void ExitGame()
