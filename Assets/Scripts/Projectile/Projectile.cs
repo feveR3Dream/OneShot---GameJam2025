@@ -35,6 +35,7 @@ public class Projectile : MonoBehaviour
         if ((weakspot & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
             owner.SetFire(true);
+            ParticleManager.instance.SpawnParticle(ParticleType.SPARK, (Vector2)transform.position, Quaternion.identity);
             EventDispatcher.Instance.SendEvent(new BossHurt {projectilePos = (Vector2)transform.position });
             PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() + 1);
             canDamage = false;
@@ -45,11 +46,13 @@ public class Projectile : MonoBehaviour
         {
             if(PierceManager.Instance.GetPierceStack() > 0)
             {
+                ParticleManager.instance.SpawnParticle(ParticleType.EXPLOSIONOST, (Vector2)transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() - 1);
             }
             else
             {
+                ParticleManager.instance.SpawnParticle(ParticleType.WITHSTAND, (Vector2)transform.position, Quaternion.identity);
                 EventDispatcher.Instance.SendEvent(new BossWhiffed());
                 canDamage = false;
                 Destroy(gameObject);
@@ -57,6 +60,7 @@ public class Projectile : MonoBehaviour
         }
         if ((hittable & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
+            ParticleManager.instance.SpawnParticle(ParticleType.EXPLOSIONHIT, (Vector2)transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             owner.SetFire(true);
             canDamage = false;
@@ -64,6 +68,7 @@ public class Projectile : MonoBehaviour
         }
         if ((boss & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
+            ParticleManager.instance.SpawnParticle(ParticleType.HIT, (Vector2)transform.position, Quaternion.identity);
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
             canDamage = false;
             Destroy(gameObject);
