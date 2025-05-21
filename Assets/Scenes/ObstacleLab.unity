@@ -1564,11 +1564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c2dfb5ce4ff264b8877977d625821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thunder: {fileID: 0}
-  pickup: {fileID: 0}
-  spotCount: 0
-  minRadius: 3
-  maxRadius: 6
+  thunderPrefab: {fileID: 0}
+  target: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  fireTime: 1
 --- !u!1 &1695891121
 GameObject:
   m_ObjectHideFlags: 0
