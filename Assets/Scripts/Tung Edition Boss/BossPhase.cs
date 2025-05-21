@@ -26,6 +26,7 @@ public class BossPhase : MonoBehaviour
 
     private void Hurt(BossHurt context)
     {
+        EventDispatcher.Instance.SendEvent(new CameraShakeEvent { ShakeDuration = 0.25f, ShakeMagnitude = 0.75f });
         currentPhase++;
         currentPhase = Mathf.Clamp(currentPhase, 0, MaxPhase - 1);
         obstacleManager.AssignObstacles(currentPhase);
