@@ -41,6 +41,14 @@ public class BossThunder : MonoBehaviour
                 Instantiate(thunder, position, Quaternion.identity);
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        // Pick one spot to spawn the centerPrefab
+        int randomIndex = Random.Range(0, spotCount);
+        Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
+        SoundManager.PlaySound(SoundType.HEAVY_SHOOT_SOUND, 1f);
+>>>>>>> Stashed changes
     }
 
 

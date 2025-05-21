@@ -13,6 +13,11 @@ public class PickupProjectile : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private float lerpToPlayerSpeed;
 
+    private void Start()
+    {
+        SoundManager.PlaySound(SoundType.PICKUP_SOUND, 1f);
+    }
+
     private void Update()
     {
         DetectPlayer();

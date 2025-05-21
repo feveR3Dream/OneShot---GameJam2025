@@ -19,7 +19,8 @@ public enum SoundType
     PICKUP_SOUND,
     DANGER_HUMMING,
     BOSS_SHOCKWAVE,
-    BOSS_EVOLVE
+    BOSS_EVOLVE,
+    LASER
 }
 
 

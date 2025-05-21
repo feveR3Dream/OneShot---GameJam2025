@@ -20,6 +20,7 @@ public class GunController : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && canFire)
         {
             canFire = false;
+            SoundManager.PlaySound(SoundType.SHOOT_SOUND, 1f);
             Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             projectile.owner = this;
         }
