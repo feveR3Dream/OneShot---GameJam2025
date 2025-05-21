@@ -14,6 +14,9 @@ public class GameplayManager : MonoBehaviour
     // Timer
     private float timer = 0f;
 
+    // Boolean
+    private bool endGame = false;
+
 
     private void OnEnable()
     {
@@ -47,6 +50,7 @@ public class GameplayManager : MonoBehaviour
 
     void Update()
     {
+        if (endGame) return;
         timer += Time.deltaTime;
     }
 
@@ -57,6 +61,8 @@ public class GameplayManager : MonoBehaviour
 
     private void WinGame(PlayerWin e)
     {
+        endGame = true;
+        CalculateScore.totalTime = (int)timer;
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(DelayAnimation("Gameplay Closing Animation", "End Screen"));
     }

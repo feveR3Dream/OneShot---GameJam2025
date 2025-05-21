@@ -12,8 +12,7 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private Button retryButton;
     [SerializeField] private Button menuButton;
     [SerializeField] private TextMeshProUGUI timerConcludeText;
-    [SerializeField] private TextMeshProUGUI deathConcludeText;
-    [SerializeField] private Animator animator;
+    //[SerializeField] private Animator animator;
 
 
     void Start()
@@ -21,7 +20,8 @@ public class EndScreen : MonoBehaviour
         if (retryButton == null) Debug.Log("Assign Retry Button");
         if (menuButton == null) Debug.Log("Assign Menu Button");
         if (timerConcludeText == null) Debug.Log("Assign Timer Text");
-        if (deathConcludeText == null) Debug.Log("Assign Death Text");
+        else timerConcludeText.text = "Time: " + CalculateScore.totalTime;
+        
     }
 
 
@@ -36,15 +36,10 @@ public class EndScreen : MonoBehaviour
         menuButton.onClick.RemoveListener(MainMenu);
     }
 
-    private void Update()
-    {
-        
-    }
-
 
     private void RetryGame()
     {
-        SceneManager.LoadScene("TopdownGameJam");
+        SceneManager.LoadScene("DaBestSceneEver");
     }
 
     private void MainMenu()

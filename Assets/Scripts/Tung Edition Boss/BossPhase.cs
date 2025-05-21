@@ -12,7 +12,7 @@ public class BossPhase : MonoBehaviour
     [SerializeField] Shockwave shockwave;
     [SerializeField] ObstacleManager obstacleManager;
     [SerializeField] LayerMask player;
-    int currentPhase;
+    [SerializeField] int currentPhase;
 
     private void OnEnable()
     {
@@ -26,16 +26,27 @@ public class BossPhase : MonoBehaviour
 
     private void Hurt(BossHurt context)
     {
+        StartCoroutine(Evolve());
+    }
+
+    IEnumerator Evolve()
+    {
         EventDispatcher.Instance.SendEvent(new CameraShakeEvent { ShakeDuration = 0.25f, ShakeMagnitude = 0.75f });
         currentPhase++;
-
+        int thisPhase = currentPhase;
         if (currentPhase > MaxPhase)
         {
             EventDispatcher.Instance.SendEvent(new PlayerWin());
-            return;
+            yield return null;
         }
-        currentPhase = Mathf.Clamp(currentPhase, 0, MaxPhase - 1);
-        obstacleManager.AssignObstacles(currentPhase);
+
+        yield return new WaitForSeconds(1.0f);
+        EventDispatcher.Instance.SendEvent(new CameraShakeEvent { ShakeDuration = 0.25f, ShakeMagnitude = 0.75f });
+        SoundManager.PlaySound(SoundType.BOSS_SHOCKWAVE, 1);
+        SoundManager.PlaySound(SoundType.BOSS_EVOLVE, 1);
+        SoundManager.PlaySound(SoundType.DANGER_HUMMING, 1);
+        ParticleManager.instance.SpawnParticle(ParticleType.SHOCKWAVE, this.transform.position, Quaternion.identity);
+        obstacleManager.AssignObstacles(thisPhase);
         DoShockwave();
     }
 

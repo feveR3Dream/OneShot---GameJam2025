@@ -8,6 +8,7 @@ public enum ParticleType
     HIT,
     EXPLOSIONOST,
     WITHSTAND,
+    SHOCKWAVE,
     // Add more particles here
 }
 
