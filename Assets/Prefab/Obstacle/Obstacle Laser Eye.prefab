@@ -50,6 +50,7 @@ MonoBehaviour:
   beamPrefab: {fileID: 5293897463675600335, guid: b1efa462636c266419881ffa51557159, type: 3}
   firingPoint: {fileID: 9039810223396876455}
   player: {fileID: 0}
+  Cooldown: 3
 --- !u!50 &5794622720128314551
 Rigidbody2D:
   serializedVersion: 4
