@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private CircleCollider2D circleCollider;
     [SerializeField] private float Acceleration;
     [SerializeField] private float Deceleration;
     [SerializeField] private float MovementSpeed;
@@ -67,6 +68,11 @@ public class PlayerController : MonoBehaviour
     public void SetCanMove(bool newValue)
     {
         _canMove = newValue;
+    }
+
+    public void SetCollider2D(bool newValue)
+    {
+        circleCollider.enabled = newValue;
     }
 
     /*
