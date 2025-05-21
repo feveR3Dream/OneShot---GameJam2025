@@ -34,7 +34,8 @@ public class BossThunder : MonoBehaviour
             spawnPositions[i] = position;
             if(i == randomIndex)
             {
-                Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
+                GameObject clonepickup = Instantiate(pickup, spawnPositions[randomIndex], Quaternion.identity);
+                EventDispatcher.Instance.SendEvent<PickUpEvent>(new PickUpEvent { PickUpObj = clonepickup }); ;
             }
             else
             {

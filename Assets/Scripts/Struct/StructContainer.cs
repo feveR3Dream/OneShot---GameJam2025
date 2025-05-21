@@ -14,7 +14,6 @@ public struct BossHurt
 #region BossWhiffed PROJECTILE -> BOSS PHASE CONTROLLER
 public struct BossWhiffed
 {
-    
 }
 #endregion
 
@@ -29,4 +28,9 @@ public struct CameraShakeEvent
 {
     public float ShakeMagnitude;
     public float ShakeDuration;
+}
+
+public struct PickUpEvent
+{
+    public GameObject PickUpObj;
 }
