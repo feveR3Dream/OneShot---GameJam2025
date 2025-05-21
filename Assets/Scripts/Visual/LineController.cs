@@ -36,6 +36,7 @@ public class LineController : MonoBehaviour
     {
         UpdatePoints();
         SetUpLine();
+        UpdateLine();
     }
 
     void Update()
@@ -88,7 +89,9 @@ public class LineController : MonoBehaviour
         _lineRenderer.positionCount = 0;
     }
 
+
 }
+
 
 
 
@@ -105,8 +108,8 @@ public class LineControllerEditor : Editor
         if (GUILayout.Button("Generate Line"))
         {
             setupPointsScripts.RefreshLine();
-        }    
-        
+        }
+
         if (GUILayout.Button("Clear Line"))
         {
             setupPointsScripts.ClearLine();
