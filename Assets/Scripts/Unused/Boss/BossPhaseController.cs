@@ -7,23 +7,18 @@ public class BossPhaseController : MonoBehaviour
 {
     public GameObject Weakspot;
     public CircleCollider2D Circle;
-
-    private float lastAngle = -999f;
     private int Phase;
 
     private void OnEnable()
     {
-        EventDispatcher.Instance.Subscribe<BossHurt>(Hurt);
-        
+        EventDispatcher.Instance.Subscribe<BossHurt>(Hurt);   
     }
 
     private void OnDisable()
     {
         EventDispatcher.Instance.Unsubscribe<BossHurt>(Hurt);
-        
     }
     
-    #region Boss Change Weakspot
     private void ChangeWeakspot(Vector2 projectilepos)
     {
         // World position of Circle center
@@ -43,7 +38,7 @@ public class BossPhaseController : MonoBehaviour
 
         Weakspot.transform.position = newPosition;
     }
-    #endregion
+
     private void PhaseIncrease()
     {
         Phase += 1;
