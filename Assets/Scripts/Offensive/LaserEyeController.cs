@@ -6,9 +6,9 @@ public class LaserEyeController : MonoBehaviour
 {
     [SerializeField] private GameObject beamPrefab;
     [SerializeField] private GameObject firingPoint;
-    private GameObject player;
     [SerializeField] private LineRenderer lineRenderer;
 
+    private GameObject player;
     private Rigidbody2D rb;
     private Vector2 targetDir;
     private float timeBeforeFire;
@@ -48,7 +48,7 @@ public class LaserEyeController : MonoBehaviour
     {
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firingPoint.transform.position);
-        lineRenderer.SetPosition(1, firingPoint.transform.position + firingPoint.transform.right * 10f);
+        lineRenderer.SetPosition(1, firingPoint.transform.position + firingPoint.transform.right * 100f);
     }
 
     private void FireBeam()
@@ -64,6 +64,6 @@ public class LaserEyeController : MonoBehaviour
 
         float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
 
-        rb.rotation = angle;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }

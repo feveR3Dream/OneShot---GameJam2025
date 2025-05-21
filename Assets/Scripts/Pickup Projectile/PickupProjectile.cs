@@ -35,6 +35,7 @@ public class PickupProjectile : MonoBehaviour
             {
                 SoundManager.PlaySound(SoundType.PICKUP_SOUND, 1f);
                 playerCollider.gameObject.GetComponent<GunController>().SetFire(true);
+                playerCollider.gameObject.GetComponent<PlayerPickUpHelper>().SetHelper(false);
                 Destroy(visualProjectile); 
                 Destroy(this.gameObject); 
             }
