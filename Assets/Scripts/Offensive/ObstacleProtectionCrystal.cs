@@ -28,9 +28,12 @@ public class ObstacleProtectionCrystal : MonoBehaviour
     {
         for (int i = 0; i < weakchildPoints.Count; i++)
         {
-            lines[i].gameObject.transform.position = weakchildPoints[i].transform.position;
-            lines[i].SetPosition(0, transform.position);
-            lines[i].SetPosition(1, weakchildPoints[i].transform.position);
+            if (weakchildPoints[i] != null)
+            {
+                lines[i].gameObject.transform.position = weakchildPoints[i].transform.position;
+                lines[i].SetPosition(0, transform.position);
+                lines[i].SetPosition(1, weakchildPoints[i].transform.position);
+            }
         }
     }
 
