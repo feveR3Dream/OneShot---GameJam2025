@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetDir;
     [SerializeField] private bool _canMove = true;
 
+
+
     private void FixedUpdate()
     {
         PlayerLook();
