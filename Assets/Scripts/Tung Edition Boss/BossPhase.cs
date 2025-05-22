@@ -42,9 +42,9 @@ public class BossPhase : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
         EventDispatcher.Instance.SendEvent(new CameraShakeEvent { ShakeDuration = 0.25f, ShakeMagnitude = 0.75f });
-        SoundManager.PlaySound(SoundType.BOSS_SHOCKWAVE, 1);
-        SoundManager.PlaySound(SoundType.BOSS_EVOLVE, 1);
-        SoundManager.PlaySound(SoundType.DANGER_HUMMING, 1);
+        SoundManager.PlaySound(SoundType.BOSS_SHOCKWAVE, 0.5f);
+        SoundManager.PlaySound(SoundType.BOSS_EVOLVE, 0.5f);
+        SoundManager.PlaySound(SoundType.DANGER_HUMMING, 0.5f);
         ParticleManager.instance.SpawnParticle(ParticleType.SHOCKWAVE, this.transform.position, Quaternion.identity);
         obstacleManager.AssignObstacles(thisPhase);
         DoShockwave();

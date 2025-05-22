@@ -55,6 +55,8 @@ public class PauseMenu : MonoBehaviour
 
         if (isPausing)
         {
+            EventDispatcher.Instance.SendEvent(new GamePaused { paused = true }) ;
+
             animator.Play("Pause Menu Open Animation");
 
             yield return WaitForClip("Pause Menu Open Animation");
@@ -65,6 +67,9 @@ public class PauseMenu : MonoBehaviour
         else
         {
             Time.timeScale = 1f; // Resume time BEFORE animation
+
+            EventDispatcher.Instance.SendEvent(new GamePaused { paused = false }) ;
+
             animator.Play("Pause Menu Close Animation");
 
             yield return WaitForClip("Pause Menu Close Animation");

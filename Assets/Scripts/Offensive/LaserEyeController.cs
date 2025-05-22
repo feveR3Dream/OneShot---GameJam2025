@@ -60,6 +60,8 @@ public class LaserEyeController : MonoBehaviour
 
     private void LookAtPlayer()
     {
+        if (player == null) return;
+
         targetDir = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
 
         float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;

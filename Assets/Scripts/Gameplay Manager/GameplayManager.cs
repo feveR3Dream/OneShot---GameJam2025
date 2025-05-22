@@ -9,7 +9,6 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Button retryButton;
     [SerializeField] private Button menuButton;
-    [SerializeField] private Image screenFader;
 
     // Timer
     private float timer = 0f;
@@ -41,8 +40,6 @@ public class GameplayManager : MonoBehaviour
     {
         if (retryButton == null) Debug.Log("Assign Retry Button");
         if (menuButton == null) Debug.Log("Assign Menu Button");
-        if (screenFader == null) Debug.Log("Assign Screen Fader");
-
         if (animator == null)
             Debug.Log("Assign Animator");
     }
@@ -100,25 +97,6 @@ public class GameplayManager : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(clipLength);
-
-        // Fade to black
-        if (screenFader != null)
-        {
-            float fadeDuration = 0.5f;
-            float elapsed = 0f;
-
-            Color startColor = screenFader.color;
-            Color endColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
-
-            while (elapsed < fadeDuration)
-            {
-                screenFader.color = Color.Lerp(startColor, endColor, elapsed / fadeDuration);
-                elapsed += Time.unscaledDeltaTime;
-                yield return null;
-            }
-
-            screenFader.color = endColor;
-        }
 
         SceneManager.LoadScene(mapName);
     }

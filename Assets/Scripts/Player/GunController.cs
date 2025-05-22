@@ -11,6 +11,18 @@ public class GunController : MonoBehaviour
 
     [Header("Values")]
     [SerializeField] private bool canFire = true;
+
+
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<GamePaused>(PausedShoot);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Subscribe<GamePaused>(PausedShoot);
+    }
+
     private void Update()
     {
         Fire();
@@ -21,7 +33,7 @@ public class GunController : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && canFire)
         {
             canFire = false;
-            SoundManager.PlaySound(SoundType.SHOOT_SOUND, 1f);
+            SoundManager.PlaySound(SoundType.SHOOT_SOUND, 0.5f);
             Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
             var temp = new ShootIndicator
@@ -38,6 +50,11 @@ public class GunController : MonoBehaviour
     public void SetFire(bool newValue)
     {
         canFire = newValue;
+    }
+
+    private void PausedShoot(GamePaused e)
+    {
+        canFire = e.paused;
     }
 }
 /*

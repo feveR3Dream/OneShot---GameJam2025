@@ -19,21 +19,25 @@ public class PlayerController : MonoBehaviour
     // Movement Vars
     private Vector2 moveVelocity;
     private Vector2 targetDir;
-    [SerializeField] private bool _canMove = true;
+    [SerializeField] private bool canMove = true;
 
     // Coroutine
     private Coroutine changeColorCoroutine = null;
 
+    // Booleans
+    private bool canLook = true;
 
 
     private void OnEnable()
     {
         EventDispatcher.Instance.Subscribe<ShootIndicator>(CanShootIndicator);
+        EventDispatcher.Instance.Subscribe<GamePaused>(PausedCantMove);
     }
 
     private void OnDisable()
     {
         EventDispatcher.Instance.Unsubscribe<ShootIndicator>(CanShootIndicator);
+        EventDispatcher.Instance.Unsubscribe<GamePaused>(PausedCantMove);
     }
 
 
@@ -45,7 +49,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerLook();
-        if (_canMove)
+
+        if (canMove)
         {
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             PlayerMove(Acceleration, Deceleration, moveInput);
@@ -75,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerLook()
     {
+        if (!canLook) return;
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         targetDir = (mousePos - (Vector2)transform.position).normalized;
@@ -91,7 +98,13 @@ public class PlayerController : MonoBehaviour
 
     public void SetCanMove(bool newValue)
     {
-        _canMove = newValue;
+        canMove = newValue;
+    }
+
+    private void PausedCantMove(GamePaused e)
+    {
+        canLook = e.paused == false;
+        canMove = e.paused == false;
     }
 
     public void SetCollider2D(bool newValue)
@@ -144,7 +157,7 @@ public class PlayerController : MonoBehaviour
     
     private void PlayerKnockback(BossDamaged e)
     {
-        _canMove = false;
+        canMove = false;
         Vector2 pushdirection = gameObject.transform.position - Boss.position;
         Vector2 multipliedforce = pushdirection.normalized * 0.25f;
 
@@ -156,7 +169,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator KnockbackRecovery(float duration)
     {
         yield return new WaitForSecondsRealtime(duration);
-        _canMove = true;
+        canMove = true;
     }
     */
 }

@@ -54,3 +54,10 @@ public struct ShootIndicator
     public float timer;
 }
 #endregion
+
+#region GamePaused:
+public struct GamePaused 
+{
+    public bool paused;
+}
+#endregion

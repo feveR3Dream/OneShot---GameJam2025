@@ -33,7 +33,7 @@ public class PickupProjectile : MonoBehaviour
         {
             if (Vector2.Distance(playerCollider.transform.position, (Vector2) visualProjectile.transform.position) <= 1f) // Temporary value
             {
-                SoundManager.PlaySound(SoundType.PICKUP_SOUND, 1f);
+                SoundManager.PlaySound(SoundType.PICKUP_SOUND, 0.5f);
                 playerCollider.gameObject.GetComponent<GunController>().SetFire(true);
                 playerCollider.gameObject.GetComponent<PlayerPickUpHelper>().SetHelper(false);
 

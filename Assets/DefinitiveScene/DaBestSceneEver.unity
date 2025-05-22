@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 33349689}
   - component: {fileID: 33349688}
   m_Layer: 0
-  m_Name: BG
+  m_Name: BG Ambient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 74711a1e3e53a3444a92f364e7aff57b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.1
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -820.87354, y: 0}
+  m_AnchoredPosition: {x: 15.128872, y: -838.4619}
   m_SizeDelta: {x: 1820, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117776532
@@ -756,7 +756,6 @@ MonoBehaviour:
   animator: {fileID: 1174848056}
   retryButton: {fileID: 1413839667}
   menuButton: {fileID: 2199948}
-  screenFader: {fileID: 0}
 --- !u!1 &142250384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1005,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.95
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1204,7 +1203,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1989,71 +1988,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2007907214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!1001 &616321775
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.139381
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24.451727
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.09058049
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157693918432083092, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590466305936515033, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: m_Name
-      value: Rename Tool
-      objectReference: {fileID: 0}
-    - target: {fileID: 8198997148976463232, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: baseName
-      value: Point
-      objectReference: {fileID: 0}
-    - target: {fileID: 8198997148976463232, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
-      propertyPath: parent.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4137a1db150e4d649b23ffde64b4cd09, type: 3}
 --- !u!1 &649441246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4449,7 +4383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 851.103, y: 0}
+  m_AnchoredPosition: {x: 15.128872, y: 859.32996}
   m_SizeDelta: {x: 1820, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523750998
@@ -5225,7 +5159,7 @@ MonoBehaviour:
   Deceleration: 20
   MovementSpeed: 12
   lineRenderDistance: 15
-  _canMove: 1
+  canMove: 1
 --- !u!58 &1985871237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5550,7 +5484,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5715,7 +5649,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5984,8 +5918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.28, y: 0.15400001}
   m_AnchorMax: {x: 0.7211459, y: 0.8452963}
-  m_AnchoredPosition: {x: -0.5, y: 371.64}
-  m_SizeDelta: {x: -0.431, y: -746.6}
+  m_AnchoredPosition: {x: -0.14224243, y: -0.8282471}
+  m_SizeDelta: {x: 0.28455, y: -1.6565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138410974
 MonoBehaviour:
@@ -8395,7 +8329,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 616321775}
   - {fileID: 1772338719}
   - {fileID: 1985871235}
   - {fileID: 1337571955}
