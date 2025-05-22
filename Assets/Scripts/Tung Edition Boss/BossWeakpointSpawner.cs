@@ -29,6 +29,13 @@ public class BossWeakpointSpawner : MonoBehaviour
         }
         activeWeakpoints.Clear();
 
+        var temp = new ShootIndicator
+        {
+            color = Color.yellow,
+            timer = 1f,
+        };
+        EventDispatcher.Instance.SendEvent(temp);
+
         int count = UnityEngine.Random.Range(1, MaximumWeakpoint + 1);
 
         for (int i = 0; i < count; i++)

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -22,6 +23,14 @@ public class GunController : MonoBehaviour
             canFire = false;
             SoundManager.PlaySound(SoundType.SHOOT_SOUND, 1f);
             Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+            var temp = new ShootIndicator
+            {
+                color = Color.white,
+                timer = 0.05f
+            };
+            EventDispatcher.Instance.SendEvent(temp);
+
             projectile.owner = this;
         }
     }

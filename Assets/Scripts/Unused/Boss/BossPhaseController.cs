@@ -49,7 +49,6 @@ public class BossPhaseController : MonoBehaviour
                 //LOLOLOL
                 break;
         }
-
     }
 
     private void Hurt(BossHurt e)

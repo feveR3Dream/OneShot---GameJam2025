@@ -41,7 +41,16 @@ public class ObstacleProtectionCrystal : MonoBehaviour
     {
         for (int i = 0; i < weakchildPoints.Count; i++)
         {
+            if (weakchildPoints[i] == null) continue;
+
             weakchildPoints[i].GetComponent<CircleCollider2D>().enabled = true;
+
+            var temp = new ShootIndicator
+            {
+                color = Color.yellow,
+                timer = 1f,
+            };
+            EventDispatcher.Instance.SendEvent(temp);
         }
     }
 }

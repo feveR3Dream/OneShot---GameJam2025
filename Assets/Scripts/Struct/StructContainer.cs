@@ -32,6 +32,13 @@ public struct CameraShakeEvent
 }
 #endregion
 
+#region PickUpEvent:
+public struct PickUpEvent
+{
+    public GameObject PickUpObj;
+}
+#endregion
+
 #region PlayerWin: WIN GAME CONDITION
 public struct PlayerWin { }
 #endregion
@@ -40,7 +47,10 @@ public struct PlayerWin { }
 public struct PlayerDie { }
 #endregion
 
-public struct PickUpEvent
+#region ShootIndicator:
+public struct ShootIndicator
 {
-    public GameObject PickUpObj;
+    public Color color;
+    public float timer;
 }
+#endregion

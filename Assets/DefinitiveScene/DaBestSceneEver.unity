@@ -5219,6 +5219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1985871232}
+  playerLR: {fileID: 8585679151093592653}
   circleCollider: {fileID: 1985871237}
   Acceleration: 15
   Deceleration: 20
@@ -8148,7 +8149,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 814053d14ea8aec4594aea4476af36b0, type: 2}
+  - {fileID: 2100000, guid: ec9d96ac023151546b0d297fe92ab27c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8220,7 +8221,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0

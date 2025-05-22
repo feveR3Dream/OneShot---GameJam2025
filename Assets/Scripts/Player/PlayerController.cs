@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private LineRenderer playerLR;
     [SerializeField] private CircleCollider2D circleCollider;
     [SerializeField] private float Acceleration;
     [SerializeField] private float Deceleration;
@@ -19,7 +21,26 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetDir;
     [SerializeField] private bool _canMove = true;
 
+    // Coroutine
+    private Coroutine changeColorCoroutine = null;
 
+
+
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.Subscribe<ShootIndicator>(CanShootIndicator);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.Unsubscribe<ShootIndicator>(CanShootIndicator);
+    }
+
+
+    private void Start()
+    {
+        if (playerLR == null) Debug.Log("Assign Player Color");
+    }
 
     private void FixedUpdate()
     {
@@ -76,6 +97,38 @@ public class PlayerController : MonoBehaviour
     public void SetCollider2D(bool newValue)
     {
         circleCollider.enabled = newValue;
+    }
+
+    private void CanShootIndicator(ShootIndicator e)
+    {
+        if (changeColorCoroutine != null)
+        {
+            StopCoroutine(changeColorCoroutine);
+            changeColorCoroutine = null;
+        }
+
+        changeColorCoroutine = StartCoroutine(ChangeColor(e.color, e.timer));
+    }
+
+    IEnumerator ChangeColor(Color targetColor, float duration)
+    {
+        // Get the starting color (assuming start and end are the same)
+        Color startColor = playerLR.material.color;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+
+            Color lerpedColor = Color.Lerp(startColor, targetColor, t);
+            playerLR.material.color = lerpedColor;
+
+            yield return null; // Wait one frame
+        }
+
+        // Ensure final color is set perfectly
+        playerLR.material.color = targetColor;
     }
 
     /*
