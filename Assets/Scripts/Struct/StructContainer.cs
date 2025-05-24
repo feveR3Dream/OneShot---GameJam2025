@@ -20,7 +20,7 @@ public struct BossWhiffed
 #region BossChangePhase: BOSSPHASECONTROLLER -> CAMERA MANAGER / BOSS TRIGGER SHOCKWAVE
 public struct BossChangePhase 
 {
-    public int Phase;
+    public int CurrentPhase;
 }
 #endregion
 

@@ -3,54 +3,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameplayManager : MonoBehaviour
+public class DeathMenu : MonoBehaviour
 {
-    public static float currentTimer { get; private set; }
-
     [Header("References")]
     [SerializeField] private Animator animator;
+    [SerializeField] private Button retryButton;
+    [SerializeField] private Button menuButton;
 
-    [Header("Values")]
-    [SerializeField] private float maxTimer = 120f;
-
-    // Boolean
-    private bool endGame = false;
-
-
-    private void Awake()
-    {
-        currentTimer = maxTimer;
-    }
 
     private void OnEnable()
     {
-        EventDispatcher.Instance.Subscribe<PlayerWin>(WinGame);
-        EventDispatcher.Instance.Subscribe<PlayerDie>(PlayerDie);
+        retryButton.onClick.AddListener(RetryGame);
+        menuButton.onClick.AddListener(MainMenu);
     }
 
     private void OnDisable()
     {
-        EventDispatcher.Instance.Unsubscribe<PlayerWin>(WinGame);
-        EventDispatcher.Instance.Unsubscribe<PlayerDie>(PlayerDie);
+        retryButton.onClick.RemoveListener(RetryGame);
+        menuButton.onClick.RemoveListener(MainMenu);
     }
 
-    void Update()
+
+    void Start()
     {
-        if (endGame) return;
-        currentTimer -= Time.deltaTime;
+        if (retryButton == null) Debug.Log("Assign Retry Button");
+        if (menuButton == null) Debug.Log("Assign Menu Button");
+        if (animator == null)
+            Debug.Log("Assign Animator");
     }
 
-    private void PlayerDie(PlayerDie e)
+    private void RetryGame()
     {
-        animator.Play("You Lose Opening Animation");
+        animator.Play("You Lose Closing Animation");
+        StartCoroutine(DelayAnimation("You Lose Closing Animation", "DaBestSceneEver"));
     }
 
-    private void WinGame(PlayerWin e)
+    private void MainMenu()
     {
-        endGame = true;
-        CalculateScore.totalTime = (int)(maxTimer - currentTimer);
         animator.Play("Gameplay Closing Animation");
-        StartCoroutine(DelayAnimation("Gameplay Closing Animation", "End Screen"));
+        StartCoroutine(DelayAnimation("Gameplay Closing Animation", "Main Menu"));
     }
 
     private IEnumerator DelayAnimation(string animationName, string mapName)
@@ -76,4 +67,6 @@ public class GameplayManager : MonoBehaviour
 
         SceneManager.LoadScene(mapName);
     }
+
+
 }

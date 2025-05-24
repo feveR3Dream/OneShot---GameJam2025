@@ -56,6 +56,8 @@ public class LaserEyeController : MonoBehaviour
         lineRenderer.enabled = false;
         GameObject bullet = Instantiate(beamPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
         timeBeforeFire = Random.Range(2,5);
+
+        SoundManager.PlaySound(SoundType.LASER, 0.5f);
     }
 
     private void LookAtPlayer()
