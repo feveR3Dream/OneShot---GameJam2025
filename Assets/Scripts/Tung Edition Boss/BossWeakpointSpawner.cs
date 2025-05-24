@@ -8,6 +8,7 @@ public class BossWeakpointSpawner : MonoBehaviour
     [SerializeField] GameObject weakpoint;
     [SerializeField] int MaximumWeakpoint;
     [SerializeField] List<GameObject> activeWeakpoints = new();
+    [SerializeField] private ProtectionCrystalsManager crystalManager;
 
     private void OnEnable()
     {
@@ -44,10 +45,7 @@ public class BossWeakpointSpawner : MonoBehaviour
             GameObject spawned = Instantiate(weakpoint, transform.position, rotation, transform);
             activeWeakpoints.Add(spawned);
         }
-    }
 
-    public List<GameObject> GetWeakPoints()
-    {
-        return activeWeakpoints;
+        crystalManager.SetWeakPoints(activeWeakpoints);
     }
 }
