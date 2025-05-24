@@ -10,7 +10,6 @@ public class EnemyLaserProjectile : MonoBehaviour
 
     void Start()
     {
-        SoundManager.PlaySound(SoundType.SHOOT_SOUND, 0.5f);
         Destroy(gameObject, 3f);
         rb = GetComponent<Rigidbody2D>();
     }

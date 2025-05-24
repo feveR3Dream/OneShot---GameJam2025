@@ -537,7 +537,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.8
+  m_fontSize: 39.5
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.85
+  m_fontSize: 43.9
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1455,7 +1455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052, y: 0.08880271}
   m_AnchorMax: {x: 0.50176877, y: 0.469}
-  m_AnchoredPosition: {x: -0.50006104, y: 52.299988}
+  m_AnchoredPosition: {x: -0.50006104, y: 52.299976}
   m_SizeDelta: {x: 1.0002, y: 45.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1608091095
@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 1636220594}
   - component: {fileID: 1636220593}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BG Music Theme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1586,7 +1586,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf37dd79cb53d1741accb471adb0a624, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

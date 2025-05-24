@@ -9,8 +9,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button menuButton;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Animator animator;
 
-    private Animator animator;
     private bool canInteract = true;
     private bool isPaused = false;
 
@@ -32,11 +32,8 @@ public class PauseMenu : MonoBehaviour
         if (menuButton == null) Debug.Log("Assign Menu Button");
         if (pauseMenu == null) Debug.Log("Assign Pause Menu");
 
-        animator = GetComponent<Animator>();
-        if (animator == null)
-            Debug.Log("Assign Animator");
-        else
-            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        if (animator == null) Debug.Log("Assign Animator");
+        else animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     private void Update()

@@ -182,7 +182,7 @@ MonoBehaviour:
   _impactPrefab: {fileID: 1145737891739790436, guid: 3671deb60dccd394e9c506dcb5973cc8, type: 3}
   _moveSpeed: 10
   _destroyItSelf: 1
-  _timer: 2
+  _timer: 0
   _fallAcceleration: 90
 --- !u!120 &5169816412119478724
 LineRenderer:

@@ -27,10 +27,9 @@ public class BossTriggerShockWave : MonoBehaviour
 
     private void PhaseChangeEventTriggered(BossChangePhase e)
     {
-        
         collider2d.enabled = true;
-        if (e.Phase <= 3)
-            collider2d.radius += e.Phase + 2;
+        if (e.CurrentPhase <= 3)
+            collider2d.radius += e.CurrentPhase + 2;
         if (pc != null)
         {
             if (Vector2.Distance(transform.position, pc.gameObject.transform.position) > collider2d.radius)

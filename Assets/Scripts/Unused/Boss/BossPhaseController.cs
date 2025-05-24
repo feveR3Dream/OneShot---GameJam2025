@@ -42,7 +42,8 @@ public class BossPhaseController : MonoBehaviour
     private void PhaseIncrease()
     {
         Phase += 1;
-        EventDispatcher.Instance.SendEvent(new BossChangePhase { Phase = this.Phase});
+        EventDispatcher.Instance.SendEvent(new BossChangePhase { CurrentPhase = this.Phase});
+
         switch (Phase)
         {
             default:
