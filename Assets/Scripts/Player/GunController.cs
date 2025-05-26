@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private PlayerLaserPointer pointer;
 
     [Header("Values")]
     [SerializeField] private bool canFire = true;
@@ -35,6 +36,7 @@ public class GunController : MonoBehaviour
             canFire = false;
             SoundManager.PlaySound(SoundType.SHOOT_SOUND, 0.5f);
             Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            pointer.SetLine(false);
 
             var temp = new ShootIndicator
             {
@@ -50,6 +52,7 @@ public class GunController : MonoBehaviour
     public void SetFire(bool newValue)
     {
         canFire = newValue;
+        pointer.SetLine(newValue);
     }
 
     private void PausedShoot(GamePaused e)
