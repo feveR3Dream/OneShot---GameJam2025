@@ -10,8 +10,8 @@ public class SpikeyBallController : MonoBehaviour
 
     private Rigidbody2D _rb;
 
-    [SerializeField] private float speed = 35f;
-    [SerializeField] private float returnSpeed = 50f;
+    [SerializeField] private float speed = 45f;
+    [SerializeField] private float returnSpeed = 60f;
     [SerializeField] private int returnNumber = 3;
     [SerializeField] private LayerMask projectile;
 
@@ -74,7 +74,8 @@ public class SpikeyBallController : MonoBehaviour
         if (aligned && isBetween)
         {
             _launchDirection = toPlayer.normalized;
-            _targetPosition = _player.transform.position;
+            _targetPosition = (Vector2)_player.transform.position + _launchDirection * Random.Range(0f, 20f);
+
             _canLaunch = true;
         }
     }
