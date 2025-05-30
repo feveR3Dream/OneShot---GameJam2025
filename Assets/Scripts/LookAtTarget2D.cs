@@ -27,7 +27,8 @@ public class LookAtTarget2D : MonoBehaviour
     {
         Vector2 direction = _target.position - InnerEye.transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        InnerEye.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        Quaternion lerpangle = Quaternion.Lerp(InnerEye.transform.rotation, Quaternion.Euler(0f, 0f, angle), 0.05f);
+        InnerEye.transform.rotation = lerpangle;
     }
 
     private void LerpPositionAtTarget()

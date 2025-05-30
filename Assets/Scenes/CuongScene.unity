@@ -6345,8 +6345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1985871235}
   InnerEye: {fileID: 2433481400886125253}
-  distMulti: 0.35
-  maxDist: 0.25
+  distMulti: 0.3
+  maxDist: 0.3
   distCap: 16
 --- !u!1 &1985871230
 GameObject:
