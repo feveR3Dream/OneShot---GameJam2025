@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
 
     [Header("Values")]
     [SerializeField] private bool canFire = true;
+    private bool paused = false;
 
 
     private void OnEnable()
@@ -26,6 +27,8 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
+        if (paused) return;
+
         Fire();
     }
 
@@ -57,6 +60,6 @@ public class GunController : MonoBehaviour
 
     private void PausedShoot(GamePaused e)
     {
-        canFire = !e.paused;
+        paused = e.paused;
     }
 }

@@ -39,6 +39,7 @@ public class Projectile : MonoBehaviour
             SoundManager.PlaySound(SoundType.HIT_WEAKSPOT, 0.5f);
             EventDispatcher.Instance.SendEvent(new BossHurt {projectilePos = (Vector2)transform.position });
             PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() + 1);
+            EventDispatcher.Instance.SendEvent(new PierceModified());
             canDamage = false;
             Destroy(gameObject);
             return;
@@ -52,6 +53,7 @@ public class Projectile : MonoBehaviour
                 
                 Destroy(collision.gameObject);
                 PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() - 1);
+                EventDispatcher.Instance.SendEvent(new PierceModified());
             }
             else
             {

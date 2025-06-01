@@ -18,12 +18,16 @@ public class PauseMenu : MonoBehaviour
     {
         resumeButton.onClick.AddListener(ResumeGame);
         menuButton.onClick.AddListener(MainMenu);
+
+        EventDispatcher.Instance.Subscribe<PlayerDie>(DisablePausing);
     }
 
     private void OnDisable()
     {
         resumeButton.onClick.RemoveListener(ResumeGame);
         menuButton.onClick.RemoveListener(MainMenu);
+
+        EventDispatcher.Instance.Unsubscribe<PlayerDie>(DisablePausing);
     }
 
     void Start()
@@ -49,9 +53,12 @@ public class PauseMenu : MonoBehaviour
     private IEnumerator PauseMenuFunctionality(bool isPausing)
     {
         canInteract = false;
+        PlayerCrosshairController.Enabled = !isPausing;
 
         if (isPausing)
         {
+            Cursor.visible = true;
+
             EventDispatcher.Instance.SendEvent(new GamePaused { paused = true }) ;
 
             animator.Play("Pause Menu Open Animation");
@@ -63,6 +70,8 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
+            Cursor.visible = false;
+
             Time.timeScale = 1f; // Resume time BEFORE animation
 
             EventDispatcher.Instance.SendEvent(new GamePaused { paused = false }) ;
@@ -112,6 +121,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(LoadMainMenuAfterAnimation("Gameplay Closing Animation"));
+
+        Cursor.visible = true;
+    }
+
+    private void DisablePausing(PlayerDie e)
+    {
+        canInteract = false;
     }
 
     private IEnumerator LoadMainMenuAfterAnimation(string animationName)

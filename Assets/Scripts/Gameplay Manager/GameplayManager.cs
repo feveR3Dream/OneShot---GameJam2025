@@ -43,6 +43,8 @@ public class GameplayManager : MonoBehaviour
     private void PlayerDie(PlayerDie e)
     {
         animator.Play("You Lose Opening Animation");
+
+        Cursor.visible = true;
     }
 
     private void WinGame(PlayerWin e)
@@ -51,6 +53,8 @@ public class GameplayManager : MonoBehaviour
         CalculateScore.totalTime = (int)(maxTimer - currentTimer);
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(DelayAnimation("Gameplay Closing Animation", "End Screen"));
+
+        Cursor.visible = true;
     }
 
     private IEnumerator DelayAnimation(string animationName, string mapName)

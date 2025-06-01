@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
         if (animator == null)
             Debug.Log("Assign Animator");
 
+        Cursor.visible = true;
     }
 
     private void OnEnable()
@@ -46,6 +47,8 @@ public class MainMenu : MonoBehaviour
     {
         animator.Play("Main Menu Closing Animation");
         StartCoroutine(WaitForClosingAnimation());
+
+        Cursor.visible = false;
     }
 
     private IEnumerator WaitForClosingAnimation()

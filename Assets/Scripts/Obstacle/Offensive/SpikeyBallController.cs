@@ -31,7 +31,7 @@ public class SpikeyBallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckerViet();
+        CheckPlayer();
     }
 
     private void FixedUpdate()
@@ -57,28 +57,27 @@ public class SpikeyBallController : MonoBehaviour
         }
     }
 
-    private void CheckerViet()
+    private void CheckPlayer()
     {
         if (_launchDirection != Vector2.zero || _canLaunch || _canReturn) return;
 
-        Vector2 toPlayer = _player.transform.position - transform.position;
-        Vector2 fromBoss = transform.position - _boss.transform.position;
+        Vector2 toPlayer = (Vector2)_player.transform.position - (Vector2)transform.position;
+        Vector2 fromBoss = (Vector2)transform.position - (Vector2)_boss.transform.position;
+        Vector2 bossToBall = fromBoss.normalized;
+        Vector2 bossToPlayer = ((Vector2)_player.transform.position - (Vector2)_boss.transform.position).normalized;
 
-        bool aligned = Vector2.Dot(toPlayer.normalized, fromBoss.normalized) > 0.99f;
+        bool sameSide = Vector2.Dot(bossToBall, bossToPlayer) > 0.99f;
+        bool farEnough = toPlayer.magnitude > 1.5f;
+        // change 1.5f to whatever buffer you like (so it doesn’t launch if player is literally on top of the ball)
 
-        float loosePercentage = 0.25f;
-        float diff = Mathf.Abs(fromBoss.magnitude - toPlayer.magnitude);
-        float avg = (fromBoss.magnitude + toPlayer.magnitude) / 2f;
-        bool isBetween = diff / avg < loosePercentage;
-
-        if (aligned && isBetween)
+        if (sameSide && farEnough)
         {
             _launchDirection = toPlayer.normalized;
             _targetPosition = (Vector2)_player.transform.position + _launchDirection * Random.Range(0f, 20f);
-
             _canLaunch = true;
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
