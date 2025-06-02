@@ -13,6 +13,9 @@ public class GameplayManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float maxTimer = 120f;
 
+    [Header("Scripts")]
+    [SerializeField] private PlayerDeath playerDeathScript;
+
     // Boolean
     private bool endGame = false;
 
@@ -20,6 +23,11 @@ public class GameplayManager : MonoBehaviour
     private void Awake()
     {
         currentTimer = maxTimer;
+    }
+
+    private void Start()
+    {
+        if (playerDeathScript == null) Debug.Log("Assign Player Death Script");
     }
 
     private void OnEnable()
@@ -38,6 +46,12 @@ public class GameplayManager : MonoBehaviour
     {
         if (endGame) return;
         currentTimer -= Time.deltaTime;
+
+        if (currentTimer <= 0 && playerDeathScript != null)
+        {
+            endGame = true;
+            playerDeathScript.CallPlayerDeath();
+        }
     }
 
     private void PlayerDie(PlayerDie e)

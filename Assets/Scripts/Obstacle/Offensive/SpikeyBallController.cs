@@ -31,6 +31,7 @@ public class SpikeyBallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_player == null) return;
         CheckPlayer();
     }
 
@@ -75,15 +76,6 @@ public class SpikeyBallController : MonoBehaviour
             _launchDirection = toPlayer.normalized;
             _targetPosition = (Vector2)_player.transform.position + _launchDirection * Random.Range(0f, 20f);
             _canLaunch = true;
-        }
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if ((projectile & (1 << collision.gameObject.layer)) != 0)
-        {
-            SetReturn();
         }
     }
 

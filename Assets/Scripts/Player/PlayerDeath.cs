@@ -9,10 +9,15 @@ public class PlayerDeath : MonoBehaviour
     {
         if (collision.gameObject != null)
         {
-            Destroy(this.gameObject);
-            EventDispatcher.Instance.SendEvent(new PlayerDie());
-            SoundManager.PlaySound(SoundType.DEATH, 0.5f);
-            SoundManager.PlaySound(SoundType.PITCHED_SHATTERING, 0.5f);
+            CallPlayerDeath();
         }
+    }
+
+    public void CallPlayerDeath()
+    {
+        Destroy(this.gameObject);
+        EventDispatcher.Instance.SendEvent(new PlayerDie());
+        SoundManager.PlaySound(SoundType.DEATH, 0.25f);
+        SoundManager.PlaySound(SoundType.PITCHED_SHATTERING, 0.25f);
     }
 }
