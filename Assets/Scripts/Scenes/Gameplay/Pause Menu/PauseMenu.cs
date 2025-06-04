@@ -118,6 +118,8 @@ public class PauseMenu : MonoBehaviour
 
     private void MainMenu()
     {
+        PlayerDeath.Invulnerable = true;
+
         Time.timeScale = 1f;
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(LoadMainMenuAfterAnimation("Gameplay Closing Animation"));

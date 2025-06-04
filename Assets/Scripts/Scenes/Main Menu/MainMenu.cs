@@ -47,8 +47,6 @@ public class MainMenu : MonoBehaviour
     {
         animator.Play("Main Menu Closing Animation");
         StartCoroutine(WaitForClosingAnimation());
-
-        Cursor.visible = false;
     }
 
     private IEnumerator WaitForClosingAnimation()
@@ -73,11 +71,10 @@ public class MainMenu : MonoBehaviour
             yield return null; // Keep waiting until it's the correct one
         }
 
-        Debug.Log("Animation Timer: " + clipLength);
-
         yield return new WaitForSeconds(clipLength);
 
         SceneManager.LoadScene("DaBestSceneEver");
+        Cursor.visible = false;
     }
 
 

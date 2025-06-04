@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
 
+    public static bool Invulnerable = false;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject != null)
+        if (collision.gameObject != null && !Invulnerable)
         {
             CallPlayerDeath();
         }

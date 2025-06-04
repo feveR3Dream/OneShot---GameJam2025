@@ -10,8 +10,9 @@ public class PlayerCrosshairController : MonoBehaviour
     // Values
     public static bool Enabled = true;
 
-    void Awake()
+    private void Awake()
     {
+        Enabled = true;
         crosshair.SetActive(true);
         Cursor.visible = false;
     }
