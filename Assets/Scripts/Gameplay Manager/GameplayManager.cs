@@ -13,6 +13,9 @@ public class GameplayManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float maxTimer = 120f;
 
+    [Header("Scripts")]
+    [SerializeField] private PlayerDeath playerDeathScript;
+
     // Boolean
     private bool endGame = false;
 
@@ -20,6 +23,11 @@ public class GameplayManager : MonoBehaviour
     private void Awake()
     {
         currentTimer = maxTimer;
+    }
+
+    private void Start()
+    {
+        if (playerDeathScript == null) Debug.Log("Assign Player Death Script");
     }
 
     private void OnEnable()
@@ -38,11 +46,19 @@ public class GameplayManager : MonoBehaviour
     {
         if (endGame) return;
         currentTimer -= Time.deltaTime;
+
+        if (currentTimer <= 0 && playerDeathScript != null)
+        {
+            endGame = true;
+            playerDeathScript.CallPlayerDeath();
+        }
     }
 
     private void PlayerDie(PlayerDie e)
     {
         animator.Play("You Lose Opening Animation");
+
+        Cursor.visible = true;
     }
 
     private void WinGame(PlayerWin e)
@@ -51,6 +67,8 @@ public class GameplayManager : MonoBehaviour
         CalculateScore.totalTime = (int)(maxTimer - currentTimer);
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(DelayAnimation("Gameplay Closing Animation", "End Screen"));
+
+        Cursor.visible = true;
     }
 
     private IEnumerator DelayAnimation(string animationName, string mapName)

@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private TextMeshProUGUI bossPhase;
+    [SerializeField] private TextMeshProUGUI pierceText;
     [SerializeField] private Animator animator;
 
     // Booleans
@@ -18,18 +19,21 @@ public class UIManager : MonoBehaviour
     {
         if (timer == null) Debug.Log("Assign Timer Text");
         if (bossPhase == null) Debug.Log("Assign Phase Text");
+        if (pierceText == null) Debug.Log("Assign Pierce Text");
         if (animator == null) Debug.Log("Assign World Space Animator");
     }
 
     private void OnEnable()
     {
         EventDispatcher.Instance.Subscribe<BossChangePhase>(UpdateBossPhaseUI);
+        EventDispatcher.Instance.Subscribe<PierceModified>(UpdatePierceAmount);
         EventDispatcher.Instance.Subscribe<PlayerDie>(StopTimer);
     }
 
     private void OnDisable()
     {
         EventDispatcher.Instance.Unsubscribe<BossChangePhase>(UpdateBossPhaseUI);
+        EventDispatcher.Instance.Unsubscribe<PierceModified>(UpdatePierceAmount);
         EventDispatcher.Instance.Unsubscribe<PlayerDie>(StopTimer);
     }
 
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateBossPhaseUI(new BossChangePhase());
+        UpdatePierceAmount(new PierceModified());
     }
     
 
@@ -69,5 +74,13 @@ public class UIManager : MonoBehaviour
     private void StopTimer(PlayerDie e)
     {
         stopTimer = true;
+    }
+
+    private void UpdatePierceAmount(PierceModified e)
+    {
+        if (PierceManager.Instance.GetPierceStack() == 0) pierceText.color = new Color(255, 0, 0, 125);
+        else pierceText.color = new Color(255, 255, 255, 125);
+
+        pierceText.text = $"Pierce\nAmount\n\n( {PierceManager.Instance.GetPierceStack()} )";
     }
 }

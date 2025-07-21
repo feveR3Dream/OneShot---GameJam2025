@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
         if (animator == null)
             Debug.Log("Assign Animator");
 
+        Cursor.visible = true;
     }
 
     private void OnEnable()
@@ -70,11 +71,10 @@ public class MainMenu : MonoBehaviour
             yield return null; // Keep waiting until it's the correct one
         }
 
-        Debug.Log("Animation Timer: " + clipLength);
-
         yield return new WaitForSeconds(clipLength);
 
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("DaBestSceneEver");
+        Cursor.visible = false;
     }
 
 
@@ -92,7 +92,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(currentClipLength); 
 
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("DaBestSceneEver");
     }
 
     private void ExitGame()

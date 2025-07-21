@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerCrosshairController : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject crosshair;
-    void Awake()
+
+    // Values
+    public static bool Enabled = true;
+
+    private void Awake()
     {
+        Enabled = true;
         crosshair.SetActive(true);
         Cursor.visible = false;
     }
 
-    void Update()
+    private void Update()
     {
         crosshair.transform.position = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        crosshair.SetActive(Enabled);
     }
 }

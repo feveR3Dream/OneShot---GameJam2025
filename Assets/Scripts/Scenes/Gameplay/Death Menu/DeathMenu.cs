@@ -30,18 +30,24 @@ public class DeathMenu : MonoBehaviour
         if (menuButton == null) Debug.Log("Assign Menu Button");
         if (animator == null)
             Debug.Log("Assign Animator");
+
+        Cursor.visible = true;
     }
 
     private void RetryGame()
     {
         animator.Play("You Lose Closing Animation");
         StartCoroutine(DelayAnimation("You Lose Closing Animation", "DaBestSceneEver"));
+
+        Cursor.visible = false;
     }
 
     private void MainMenu()
     {
         animator.Play("Gameplay Closing Animation");
         StartCoroutine(DelayAnimation("Gameplay Closing Animation", "Main Menu"));
+
+        Cursor.visible = false;
     }
 
     private IEnumerator DelayAnimation(string animationName, string mapName)

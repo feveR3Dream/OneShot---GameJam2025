@@ -36,22 +36,24 @@ public class Projectile : MonoBehaviour
         {
             owner.SetFire(true);
             ParticleManager.instance.SpawnParticle(ParticleType.SPARK, (Vector2)transform.position, Quaternion.identity);
-            SoundManager.PlaySound(SoundType.HIT_WEAKSPOT, 0.5f);
+            SoundManager.PlaySound(SoundType.HIT_WEAKSPOT, 0.25f);
             EventDispatcher.Instance.SendEvent(new BossHurt {projectilePos = (Vector2)transform.position });
             PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() + 1);
+            EventDispatcher.Instance.SendEvent(new PierceModified());
             canDamage = false;
             Destroy(gameObject);
             return;
         }
         if((obstacle & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
-            SoundManager.PlaySound(SoundType.RICOCHET, 0.5f);
+            SoundManager.PlaySound(SoundType.RICOCHET, 0.25f);
             if (PierceManager.Instance.GetPierceStack() > 0)
             {
                 ParticleManager.instance.SpawnParticle(ParticleType.EXPLOSIONOST, (Vector2)transform.position, Quaternion.identity);
                 
                 Destroy(collision.gameObject);
                 PierceManager.Instance.SetPierceStack(PierceManager.Instance.GetPierceStack() - 1);
+                EventDispatcher.Instance.SendEvent(new PierceModified());
             }
             else
             {
@@ -63,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
         if ((hittable & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
-            SoundManager.PlaySound(SoundType.RICOCHET, 0.5f);
+            SoundManager.PlaySound(SoundType.RICOCHET, 0.25f);
             ParticleManager.instance.SpawnParticle(ParticleType.EXPLOSIONHIT, (Vector2)transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             owner.SetFire(true);
@@ -72,7 +74,7 @@ public class Projectile : MonoBehaviour
         }
         if ((boss & (1 << collision.gameObject.layer)) != 0 && canDamage)
         {
-            SoundManager.PlaySound(SoundType.RICOCHET, 0.5f);
+            SoundManager.PlaySound(SoundType.RICOCHET, 0.25f);
             ParticleManager.instance.SpawnParticle(ParticleType.HIT, (Vector2)transform.position, Quaternion.identity);
             EventDispatcher.Instance.SendEvent(new BossWhiffed());
             canDamage = false;

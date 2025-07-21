@@ -55,6 +55,10 @@ public struct ShootIndicator
 }
 #endregion
 
+#region PierceModified
+public struct PierceModified { }
+#endregion
+
 #region GamePaused:
 public struct GamePaused 
 {

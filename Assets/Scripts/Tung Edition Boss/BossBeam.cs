@@ -43,7 +43,7 @@ public class BossBeam : MonoBehaviour
     IEnumerator FireBeam()
     {
         Instantiate(beamPrefab, spawnPoint.position, spawnPoint.rotation);
-        SoundManager.PlaySound(SoundType.LASER, 0.5f);
+        SoundManager.PlaySound(SoundType.LASER, 0.25f);
         yield return new WaitForSeconds(fireTime);
     }
 }
