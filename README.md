@@ -1,2 +1,2 @@
-# GJ-2025---The-Bois
-Made by the bois. WE UPPPPPPP!!!!!
+# OneShot---GameJam2025
+Made by Duc Anh (feveR3Dream), Truong (LaosPhoi), Tung (RavenWaffle), Nam (xcbin), Cuong (HolClol) & Mason (OG Mason) --- For GameJam 2025
